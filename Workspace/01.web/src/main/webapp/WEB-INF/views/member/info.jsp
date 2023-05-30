@@ -18,6 +18,5 @@
 	<div>성명 :${name }</div>
 	<div>성별 :${gender }</div>
 	<div>이메일 :${email }</div>
-
 </body>
 </html>
