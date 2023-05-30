@@ -13,7 +13,7 @@ public class TestController {
 	@RequestMapping("/first")
 	public String first(Model model) {
 //		비지니스로직
-		String today = new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
+		String today = new SimpleDateFormat("yyyy년 mm월 dd일").format(new Date());
 		model.addAttribute("today", today);
 //		응답화면연결
 		return "index";

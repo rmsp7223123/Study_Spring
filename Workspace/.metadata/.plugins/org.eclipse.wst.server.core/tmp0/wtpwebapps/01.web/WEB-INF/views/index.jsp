@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>확인</h1>
+	오늘은${today }입니다
 </body>
 </html>
