@@ -8,8 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import customer.CustomerVO;
 
 @Controller
 public class TestController {
@@ -52,11 +56,42 @@ public class TestController {
 	@RequestMapping("joinRequest")
 	public String joinRequest(HttpServletRequest request, Model model) {
 		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
 		model.addAttribute("gender", request.getParameter("gender"));
 		model.addAttribute("email", request.getParameter("email"));
 
 		model.addAttribute("name", name);
+		model.addAttribute("age", age);
 		model.addAttribute("method", "HttpServletRequest 방식");
 		return "member/info";
 	}
+
+	@RequestMapping("joinParam")
+	public String joinParam(String name, @RequestParam("gender") String g, String email, int age, Model model) {
+		model.addAttribute("method", "@RequestParam");
+		model.addAttribute("name", name);
+		model.addAttribute("gender", g);
+		model.addAttribute("email", email);
+		model.addAttribute("age", age);
+		return "member/info";
+	}
+
+	@RequestMapping("joinDataObject")
+	public String joinDataObject(CustomerVO vo, Model model) {
+		model.addAttribute("method", "데이터객체");
+		model.addAttribute("vo", vo);
+		return "member/info";
+	}
+
+	@RequestMapping("/joinPath/{name}/{gender}/{email}/{age}")
+	public String joinPath(@PathVariable String name, @PathVariable String gender, @PathVariable String email,
+			@PathVariable int age, Model model) {
+		model.addAttribute("method", "@PathVariable");
+		model.addAttribute("name", name);
+		model.addAttribute("gender", gender);
+		model.addAttribute("email", email);
+		model.addAttribute("age", age);
+		return "member/info";
+	}
+
 }
