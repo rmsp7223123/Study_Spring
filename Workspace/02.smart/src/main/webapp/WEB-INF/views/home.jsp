@@ -6,6 +6,7 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>ㅁㄴㅇ</h1>
+	<h3 class="my-4">스마트 웹&amp;앱 과정</h3>
+	<img style="width: 100%" src="img/hanul.png" alt="" />
 </body>
 </html>
