@@ -3,6 +3,7 @@ package customer;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,7 +28,7 @@ public class CustomerDAO implements CustomerService {
 	@Override
 	public List<CustomerVO> customer_list() {
 		// TODO Auto-generated method stub
-		return null;
+		return sql.selectList("customer.list");
 	}
 
 	@Override

@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-	
-	@Autowired private CustomerDAO dao;
-	
+
+	@Autowired
+	private CustomerDAO dao;
+
 	@Override
 	public void customer_insert(CustomerVO vo) {
 		// TODO Auto-generated method stub
@@ -19,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<CustomerVO> customer_list() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.customer_list();
 	}
 
 	@Override
