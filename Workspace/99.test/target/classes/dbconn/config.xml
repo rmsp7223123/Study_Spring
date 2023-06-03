@@ -11,7 +11,7 @@
 		<property name="username" value="hanul" />
 		<property name="password" value="0000" />
 	</bean>
-
+	
 
 	<bean id="factory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
