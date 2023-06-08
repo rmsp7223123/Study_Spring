@@ -4,16 +4,15 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<!-- home, index -->
-	<definition name="*"
-		template="/WEB-INF/views/tiles/layout.jsp">
-		<put-attribute name="container"
-			value="/WEB-INF/views/{1}.jsp" />
-	</definition>
-	<!-- customer/list, customer/new, customer/info notice/list, board/new -->
-	<definition name="*/*"
-		template="/WEB-INF/views/tiles/layout.jsp">
-		<put-attribute name="container"
-			value="/WEB-INF/views/{1}/{2}.jsp" />
+	<definition name="*" template="/WEB-INF/views/tiles/layout.jsp">
+		<put-attribute name="container" value="/WEB-INF/views/{1}.jsp"/>
 	</definition>
 	
-</tiles-definitions>
+	<!-- customer/list, customer/new, customer/info
+		 notice/list, board/new 
+	-->
+	<definition name="*/*" template="/WEB-INF/views/tiles/layout.jsp">
+		<put-attribute name="container" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+
+</tiles-definitions>       

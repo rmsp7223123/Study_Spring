@@ -5113,7 +5113,7 @@ textarea.form-control-lg {
 }
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
-  background-color: #DDA0DD;
+  background-color: var(--bs-blue); /*  #636464; */
   border-color: #636464;
 }
 
@@ -10835,7 +10835,7 @@ textarea.form-control-lg {
 }
 
 #sidebar-wrapper .sidebar-heading {
-  padding: 0.6125rem 1.25rem;
+  padding: 0.6125rem  1.25rem;
   font-size: 1.2rem;
 }
 

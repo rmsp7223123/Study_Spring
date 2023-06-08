@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr">
+
+	<!-- 전체 사원정보 조회 -->
+	<select id="list" resultType="smart.hr.EmployeeVO">
+		select e.first_name||'
+		'||e.last_name as name, e.employee_id,
+		d.department_name, j.job_title,
+		e.hire_date
+		from departments d ,employees e , jobs j
+		where
+		d.department_id = e.department_id
+		and e.job_id = j.job_id
+	</select>
+
+	<select id="employeeDepartmentList"
+		resultType="smart.hr.departmentVO">
+		SELECT DISTINCT
+		nvl(to_char(department_id),
+		'코드없음')
+		department_id,
+		nvl(department_name, '소속없음') department_name
+		FROM
+		employees e
+		LEFT OUTER JOIN departments d USING ( department_id )
+	</select>
+</mapper>

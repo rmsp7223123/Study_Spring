@@ -11,4 +11,10 @@
 			<item value="org.eclipse.jdt.ui.java"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+	</section>
+	<section name="PreferencesImportWizard">
+	</section>
+	<section name="PreferencesExportWizard">
+	</section>
 </section>
