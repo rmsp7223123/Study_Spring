@@ -9,17 +9,20 @@
 </head>
 <body>
 	<h3 class="my-4">사원목록</h3>
-
-	<div class="row my-3">
-		<div class="col-auto">
-			<label class="me-3"> 부서명 </label> <select class="form-control col">
-				<option>전체</option>
-				<option>Executive</option>
-				<option>IT</option>
-			</select>
+	<form method="post" action="list">
+		<div class="row my-3">
+			<div class="col-auto">
+				<label class="me-3"> 부서명 </label> <select name="department_id"
+					class="form-control col" onchange="submit()">
+					<option value="-1">전체</option>
+					<c:forEach items="${departments }" var="d">
+						<option value="${d.department_id }"
+							${d.department_id eq department_id ? 'selected' : '' }>${d.department_name }</option>
+					</c:forEach>
+				</select>
+			</div>
 		</div>
-	</div>
-
+	</form>
 	<table class="tb-list">
 		<colgroup>
 			<col width="80px">
@@ -46,7 +49,8 @@
 		<c:forEach items="${list }" var="vo">
 			<tr>
 				<th>${vo.employee_id }</th>
-				<th>${vo.name }</th>
+				<th><a class="text_link" href="info?id=${vo.employee_id }">
+						${vo.name }</a></th>
 				<th>${vo.department_name }</th>
 				<th>${vo.job_title }</th>
 				<th>${vo.hire_date }</th>
