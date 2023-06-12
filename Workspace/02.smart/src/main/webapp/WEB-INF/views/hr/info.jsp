@@ -49,11 +49,56 @@
 		</tr>
 	</table>
 
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal
+						title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Understood</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="btn-toolbar my-3 gap-2 justify-content-center">
 		<button class="btn btn-primary" onclick="location='list'">사원목록</button>
 		<button class="btn btn-primary"
 			onclick="location='modify?id=${vo.employee_id}'">정보수정</button>
-		<button class="btn btn-primary">정보삭제</button>
+		<button class="btn btn-primary"
+			onclick="if(confirm('사번 ${vo.employee_id} 사원정보 삭제하시겠습니까?')){location='delete?id=${vo.employee_id}'}">정보삭제</button>
+		<button class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#modal-alert">정보삭제(Modal 버튼에 연결)</button>
+		<button class="btn btn-primary" onclick="showModal('success')">정보삭제(Modal
+			success)</button>
+		<button class="btn btn-primary" onclick="showModal('info')">정보삭제(Modal
+			info)</button>
 	</div>
+
+	<jsp:include page="/WEB-INF/views/include/modal_alert.jsp" />
+	<script>
+		function showModal(type) {
+			modalAlert(type, "사원정보삭제", "이름 [${vo.name}] 사원정보 삭제하시겠습니까?");
+			new bootstrap.Modal($("#modal-alert")).show();
+		}
+
+		$('#modal-alert .btn-danger').click(function() {
+			location = 'delete?id=${vo.employee_id}';
+		})
+
+		$(function() {
+			modalAlert('danger', "사원정보삭제", "이름 [${vo.name}] 사원정보 삭제하시겠습니까?");
+		})
+	</script>
 </body>
 </html>

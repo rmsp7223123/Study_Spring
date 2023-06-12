@@ -14,12 +14,6 @@ public class HrDAO implements HrService {
 	private SqlSession sql;
 
 	@Override
-	public void employee_insert() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public List<EmployeeVO> employee_list() {
 		return sql.selectList("hr.list");
 	}
@@ -37,8 +31,7 @@ public class HrDAO implements HrService {
 
 	@Override
 	public int employee_delete(int employee_id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sql.delete("hr.delete", employee_id);
 	}
 
 	@Override
@@ -59,6 +52,11 @@ public class HrDAO implements HrService {
 	@Override
 	public List<JobVO> job_List() {
 		return sql.selectList("hr.jobList");
+	}
+
+	@Override
+	public int employee_insert(EmployeeVO vo) {
+		return sql.insert("hr.insert", vo);
 	}
 
 }

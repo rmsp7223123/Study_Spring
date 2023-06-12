@@ -53,4 +53,25 @@ public class HrController {
 		service.employee_update(vo);
 		return "redirect:info?id=" + vo.getEmployee_id();
 	}
+
+//	사원정보 삭제처리 요청
+	@RequestMapping("/delete")
+	public String delete(int id) {
+		service.employee_delete(id);
+		return "redirect:list";
+	}
+
+	@RequestMapping("/new")
+	public String insert(Model model) {
+		model.addAttribute("departments", service.department_list());
+		model.addAttribute("jobs", service.job_List());
+		return "hr/new";
+	}
+
+//	사원정보 추가
+	@RequestMapping("/insert")
+	public String insert1(Model model, EmployeeVO vo) {
+		model.addAttribute("vo", service.employee_insert(vo));
+		return "hr/list";
+	}
 }

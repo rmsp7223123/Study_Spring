@@ -15,6 +15,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="fs-5"/>
 			<item value="lombok"/>
 			<item value=".active"/>
 			<item value="active"/>

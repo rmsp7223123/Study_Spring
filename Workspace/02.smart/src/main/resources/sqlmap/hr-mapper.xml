@@ -79,4 +79,19 @@
 		where employee_id =
 		#{employee_id}
 	</update>
+	<!-- 사원정보 삭제 -->
+	<delete id="delete">
+		delete from employees where employee_id =
+		#{employee_id}
+	</delete>
+	<!-- 사원정보 추가 -->
+	<insert id="insert">
+		insert into employees (employee_id, last_name,
+		first_name, email, phone_number, salary, hire_date, job_id,
+		department_id) values (employees_seq.nextval, #{last_name},
+		#{first_name},
+		#{email}, #{phone_number}, #{salary}, #{hire_date},
+		#{job_id},
+		#{department_id})
+	</insert>
 </mapper>
