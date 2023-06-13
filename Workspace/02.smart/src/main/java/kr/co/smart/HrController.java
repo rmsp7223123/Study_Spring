@@ -72,6 +72,6 @@ public class HrController {
 	@RequestMapping("/insert")
 	public String insert1(Model model, EmployeeVO vo) {
 		model.addAttribute("vo", service.employee_insert(vo));
-		return "hr/list";
+		return "redirect:list";
 	}
 }

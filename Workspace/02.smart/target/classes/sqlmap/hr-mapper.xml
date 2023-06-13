@@ -87,11 +87,19 @@
 	<!-- 사원정보 추가 -->
 	<insert id="insert">
 		insert into employees (employee_id, last_name,
-		first_name, email, phone_number, salary, hire_date, job_id,
-		department_id) values (employees_seq.nextval, #{last_name},
+		first_name, email,
+		phone_number, salary, hire_date, job_id,
+		department_id) values
+		(employees_seq.nextval, #{last_name},
 		#{first_name},
-		#{email}, #{phone_number}, #{salary}, #{hire_date},
+		#{email},
+		#{phone_number}, #{salary}, #{hire_date},
 		#{job_id},
-		#{department_id})
+		<choose>
+			<when test="department_id == -1">null</when>
+			<otherwise>#{department_id}</otherwise>
+		</choose>
+
+		)
 	</insert>
 </mapper>

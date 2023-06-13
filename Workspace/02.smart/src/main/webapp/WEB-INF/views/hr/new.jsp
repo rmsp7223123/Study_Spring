@@ -17,19 +17,15 @@
 				<col>
 			</colgroup>
 			<tr>
-				<th>사번</th>
-				<td>${vo.employee_id}</td>
-			</tr>
-			<tr>
 				<th>사원명</th>
 				<td><div class="row">
 						<div class="col-auto">
 							<input type="text" class="form-control" required name="last_name"
-								value="${vo.last_name }">
+								value="${vo.last_name }" placeholder="성">
 						</div>
 						<div class="col-auto">
 							<input type="text" class="form-control" required
-								name="first_name" value="${vo.first_name }">
+								name="first_name" value="${vo.first_name }" placeholder="이름">
 						</div>
 					</div></td>
 			</tr>
@@ -106,6 +102,18 @@
 				onclick="history.go(-1)">취소</button>
 		</div>
 	</form>
+
+	<script>
+		$(function() {
+			$('[name=hire_date]').val(
+					$.datepicker.formatDate('yy-mm-dd', new Date()))
+
+		})
+
+		/* 	$('[name=hire_date]').val(new Date().toJSON().substr(0, 10)) */
+	</script>
+
+
 
 </body>
 </html>

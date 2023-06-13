@@ -19,3 +19,5 @@ D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\
 \01.web\src\main\java
 D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3137738574.index
 \02.smart\src\main\java
+D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4159375194.index
+\02.smart\src\main\java
