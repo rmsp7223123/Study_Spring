@@ -54,5 +54,6 @@
 		<constructor-arg index="0" ref="factoryHr" />
 		<qualifier value="hr" />
 	</bean>
-
+	<bean
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 </beans>
