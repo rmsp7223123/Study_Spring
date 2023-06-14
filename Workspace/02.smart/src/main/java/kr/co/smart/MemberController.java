@@ -34,6 +34,7 @@ public class MemberController {
 			match = pe.matches(userpw, vo.getUserpw());
 		}
 		if (match) {
+			session.setAttribute("loginInfo", vo);
 			return "redirect:/";
 		} else {
 			rd.addFlashAttribute("fail", true);
@@ -93,10 +94,12 @@ public class MemberController {
 			String pw = UUID.randomUUID().toString(); // adfasdfdf_123123safsdf-asd1
 			pw = pw.substring(pw.lastIndexOf("-") + 1); // asd1
 			vo.setUserpw(pe.encode(pw));
-			if (service.member_resetPassword(vo) == 1 && common.sendPassword()) {
-
+			if (service.member_resetPassword(vo) == 1 && common.sendPassword(vo, pw)) {
+				msg.append("alert('임시 비밀번호가 발급되었습니다. \\n이메일을 확인하세요.');");
+				msg.append("location='login'");
 			} else {
-
+				msg.append("alert('비밀번호 발급에 실패하였습니다.');");
+				msg.append("history.go(-1)");
 			}
 		}
 		msg.append("</script>");
