@@ -7773,3 +7773,15 @@ java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 8
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-15 17:51:10.915
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-15 17:52:27.820
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CRcqYTst
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-15 17:52:27.821
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.CRcqYTst
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-15 17:52:27.821
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-15 17:52:27.822
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CRcqYTst => OK
