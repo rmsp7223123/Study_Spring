@@ -8,7 +8,6 @@
 	</c:when>
 </c:choose>
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />

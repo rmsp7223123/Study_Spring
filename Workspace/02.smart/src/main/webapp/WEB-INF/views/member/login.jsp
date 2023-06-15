@@ -10,7 +10,7 @@
 <body>
 	<div class="row justify-content-center h-100 align-items-center">
 		<div class="col-md-9 col-lg-7 col-xl-5">
-			<div class="card shadow-lg border-0 rounded-lg mt-5 px-3 py-5">
+			<div class="card shadow-lg border-0 rounded-lg px-3 py-5">
 				<h3 class="text-center">
 					<a href="<c:url value='/'/>"><img
 						src="<c:url value='/img/hanul.logo.png'/>"></a>

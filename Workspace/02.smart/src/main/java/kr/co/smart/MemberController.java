@@ -48,6 +48,17 @@ public class MemberController {
 		return "default/member/login";
 	}
 
+//	비밀번호 변경 화면 처리 요청
+	@RequestMapping("/changePassword")
+	public String change(HttpSession session) {
+		MemberVO vo = (MemberVO) session.getAttribute("loginInfo");
+		if (vo == null) {
+			return "redirect:login";
+		} else {
+			return "member/changePassword";
+		}
+	}
+
 	/*
 	 * @RequestMapping("/login") public String login() {
 	 * 
