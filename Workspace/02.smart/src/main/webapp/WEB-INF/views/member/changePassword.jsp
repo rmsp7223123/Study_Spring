@@ -44,18 +44,81 @@
 				</div></td>
 		</tr>
 	</table>
-
+	<input type="hidden" id="userid" value="${loginInfo.userid }">
 	<div class="btn-toolbar justify-content-center my-3">
 		<button class="btn btn-primary px-4" id="btn-save">변경</button>
 	</div>
-	<script src="<c:url value='/js/member.js'/>"></script>
+	<jsp:include page="/WEB-INF/views/include/modal_alert.jsp" />
+	<c:set var="now" value="<%=new java.util.Date().getTime()%>" />
+	<script src="<c:url value='/js/member.js?${now }'/>"></script>
 
 	<script>
-		$('#btn-save').click(function() {
-			if (tagIsValid()) {
-
+		$('#modal-alert .btn-ok').click(function() {
+			if ($(this).hasClass('btn-success')) {
+				location = '<c:url value="/"/>';
 			}
 		})
+
+		function resetPassword() {
+			$.ajax({
+				url : 'updatePassword',
+				data : {
+					userid : $('#userid').val(),
+					userpw : $('[name=userpw]').val()
+				}
+			}).done(function(response) {
+				if (response) {
+					modalAlert('success', '비밀번호변경', '비밀번호가 변경되었습니다.');
+				} else {
+					modalAlert('warning', '비밀번호변경', '비밀번호가 변경되지 않았습니다.');
+				}
+				new bootstrap.Modal($('#modal-alert')).show();
+			})
+		}
+
+		$('#btn-save').click(
+				function() {
+					if (tagIsValid()) {
+						// 				입력한 현재 비밀번호가 DB에 있는 비밀번호와 같은지 확인
+						$.ajax({
+							url : 'confirmPassword',
+							data : {
+								userpw : $('[name=currentpw]').val(),
+								userid : $('#userid').val()
+							},
+						}).done(
+								function(response) {
+									if (response == 1) {
+										alert('현재 비밀번호가 일치하지 않습니다.')
+										$('[name=currentpw]').val('').focus();
+									} else {
+										if ($('[name=currentpw]').val() == $(
+												'[name=userpw]').val()) {
+											alert('현재 비밀번호와 동일합니다.')
+											$('name=userpw').focus();
+										} else {
+											resetPassword();
+										}
+									}
+								}).fail(
+								function(xhr) {
+									console.log(xhr.statusText + ':'
+											+ xhr.status + 'n'
+											+ xhr.responseText)
+								})
+						// 				$.ajax({
+						// 					url : 'confirmPassword',
+						// 					data : {
+						// 						userpw : $($('[name=currentpw]').val()
+						// 					},
+						// 					success = function(response) {
+
+						// 					}, error : function() {
+
+						// 					}
+						// 				})
+					}
+				})
 		//태그에 값을 유효하게 입력했는지
 		function tagIsValid() {
 			var ok = true;
@@ -67,9 +130,13 @@
 				$('.check-item').each(function() {
 					//비밀번호, 확인 입력상태 체크
 					var status = member.tagStatus($(this))
-					console.log('status :', status)
-					console.log('status is :', status.is)
-					console.log('status desc :', status.desc)
+					if (!status.is) {
+						alert('비밀번호 변경 불가\n' + status.desc)
+						$(this).focus();
+						ok = false;
+						return ok;
+					}
+
 				})
 			}
 			return ok;

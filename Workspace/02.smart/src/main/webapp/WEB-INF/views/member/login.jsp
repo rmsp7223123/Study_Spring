@@ -6,6 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#naver {
+	background: url("<c:url value = '/img/naver_login.png'/>") no-repeat
+		center/contain #03C75A
+}
+
+#kakao {
+	background: url("<c:url value = '/img/kakao_login.png'/>") no-repeat
+		center/contain #FEE500
+}
+</style>
 </head>
 <body>
 	<div class="row justify-content-center h-100 align-items-center">
@@ -32,12 +43,22 @@
 								href="findPassword">비밀번호찾기</a>
 						</div>
 					</form>
+					<hr>
+					<div class="d-flex gap-3">
+						<input type="button" class="form-control p-3 border-0" id="naver">
+						<input type="button" class="form-control p-3 border-0" id="kakao">
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/include/modal_alert.jsp" />
 	<script>
+	
+	$('#naver, #kakao').click(function(){
+		location = $(this).attr('id')+'Login';
+	})
+	
 	$(function(){
 		modalAlert("warning", "로그인 실패", "아이디나 비밀번호 불일치");
 		if(${not empty fail}){

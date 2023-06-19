@@ -103,18 +103,29 @@
 							</c:if>
 							<!-- 로그인이 되어있는 경우 -->
 							<c:if test="${not empty loginInfo}">
+								<c:choose>
+									<c:when test="${empty loginInfo.profile}">
+										<i class="font-profile fa-regular fa-circle-user"></i>
+									</c:when>
+									<c:otherwise>
+										<li class="nav-item"><img src="${loginInfo.profile}"
+											alt="" class="profile" /></li>
+									</c:otherwise>
+								</c:choose>
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 									role="button" data-bs-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">${loginInfo.name}</a>
 									<div class="dropdown-menu dropdown-menu-end"
 										aria-labelledby="navbarDropdown">
-										<a class="dropdown-item">아이디 : ${loginInfo.userid}</a> <a
-											class="dropdown-item" href="#!">MY profile</a> <a
-											class="dropdown-item"
-											href="<c:url value='member/changePassword'/>">비밀번호 변경</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#!">로그아웃</a>
+										<c:if test="${empty loginInfo.social}">
+											<a class="dropdown-item">아이디 : ${loginInfo.userid}</a>
+											<a class="dropdown-item" href="#!">MY profile</a>
+											<a class="dropdown-item"
+												href="<c:url value='member/changePassword'/>">비밀번호 변경</a>
+											<div class="dropdown-divider"></div>
+										</c:if>
+										<a class="dropdown-item" href="<c:url value='member/logout'/>">로그아웃</a>
 									</div></li>
 							</c:if>
 						</ul>

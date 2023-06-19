@@ -6,6 +6,36 @@
 		insert into member (name, userid, userpw, email)
 		values (#{name}, #{userid}, #{userpw}, #{email})
 	</insert>
+	<!-- 회원정보 변경저장 -->
+	<update id="update">
+		update member set name = #{name}, gender = #{gender},
+		email = #{email, jdbcType=VARCHAR},
+		profile = #{profile,
+		jdbcType=VARCHAR},
+		birth = #{birth, jdbcType=VARCHAR}, phone =
+		#{phone,
+		jdbcType=VARCHAR}, post = #{post, jdbcType=VARCHAR}, address =
+		#{address, jdbcType=VARCHAR}
+		where userid = #{userid}
+	</update>
+
+
+	<!-- 회원가입 -->
+	<insert id="join">
+		insert into member (name, userid, userpw, gender,
+		email, profile, birth, phone, post, address, social)
+		values (#{name},
+		#{userid}, #{userpw, jdbcType=VARCHAR}, #{gender}, #{email,
+		jdbcType=VARCHAR},
+		#{profile, jdbcType=VARCHAR}, #{birth,
+		jdbcType=VARCHAR},
+		#{phone,
+		jdbcType=VARCHAR}, #{post,
+		jdbcType=VARCHAR}, #{address,
+		jdbcType=VARCHAR},
+		#{social,
+		jdbcType=VARCHAR})
+	</insert>
 
 	<!-- 테스트용 로그인 -->
 	<select id="loginTest" resultType="smart.member.MemberVO">

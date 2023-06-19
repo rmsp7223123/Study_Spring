@@ -12,3 +12,8 @@ CREATE TABLE member (
     address VARCHAR2(300),
     admin   VARCHAR2(2) DEFAULT 'N' NOT NULL --관리자여부(Y/N)
 );
+
+alter table member add( social varchar2(1));
+
+alter table member modify(userpw null, email null);
+commit;

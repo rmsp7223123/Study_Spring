@@ -14,9 +14,8 @@ public class MemberDAO implements MemberSerivce {
 	private SqlSession sql;
 
 	@Override
-	public void member_join(MemberVO vo) {
-		// TODO Auto-generated method stub
-
+	public int member_join(MemberVO vo) {
+		return sql.insert("member.join", vo);
 	}
 
 	@Override
@@ -32,8 +31,7 @@ public class MemberDAO implements MemberSerivce {
 
 	@Override
 	public int member_update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sql.update("member.update", vo);
 	}
 
 	@Override

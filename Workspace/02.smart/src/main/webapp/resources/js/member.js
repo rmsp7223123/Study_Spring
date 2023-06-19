@@ -4,8 +4,8 @@
 
 var member = {
 	// 태그별로 상태 확인
-	tagStatus: function(tag) {
-		if (tag.is("[name=userpw]")) return this.userpwStatus(tag.val());
+	tagStatus: function(tag, input) {
+		if (tag.is("[name=userpw]")) return this.userpwStatus(tag.val(), input);
 		else if (tag.is("[name=userpw_ck]")) return this.userpwCheckStatus(tag.val());
 	},
 
@@ -27,13 +27,19 @@ var member = {
 	},
 
 	showStatus: function(target) {
-		var status = this.tagStatus(target)
+		var status = this.tagStatus(target, true)
 		target.closest('.input-check').find('.desc').text(status.desc)
 			.removeClass('text-success text-danger')
 			.addClass(status.is ? 'text-success' : 'text-danger')
 	},
 
-	userpwStatus: function(pw) {
+	//	비밀번호를 다시 입력할 때 비밀번호확인 항목을 초기화 하는 처리
+	userpwStatus: function(pw, input) {
+		if (input) {
+			$('[name=userpw_ck]').val('');
+			$('[name=userpw_ck]').closest('.input-check').find('.desc').text('').removeClass('text-success text-danger');
+		}
+
 		var reg = /[^A-Za-z0-9]/g, upper = /[A-Z]/g, lower = /[a-z]/g, digit = /[0-9]/g;
 		if (pw == "") return this.common.empty;
 		else if (pw.match(this.space)) return this.common.space;

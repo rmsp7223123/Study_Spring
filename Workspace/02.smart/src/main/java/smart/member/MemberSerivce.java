@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface MemberSerivce {
 	// CRUD
-	void member_join(MemberVO vo);// 회원가입 시 회원정보 저장
+	int member_join(MemberVO vo);// 회원가입 시 회원정보 저장
 
 	MemberVO member_info(String userid);// 내정보 보기(내 프로필) : 회원정보 조회
 
