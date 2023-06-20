@@ -85,9 +85,20 @@ public class MemberController {
 
 //	로그아웃 처리 요청
 	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request) {
+		MemberVO login = (MemberVO) session.getAttribute("loginInfo");
 		session.removeAttribute("loginInfo");
-		return "redirect:/";
+//		curl -v -X GET "https://kauth.kakao.com/oauth/logout?
+//		client_id=${YOUR_REST_API_KEY}&logout_redirect_uri=${YOUR_LOGOUT_REDIRECT_URI}"
+		String social = login.getSocial();
+		if (social != null && social.equals("K")) {
+			StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/logout?");
+			url.append("client_id=").append(KAKAO_ID);
+			url.append("&logout_redirect_uri=").append(common.appURL(request));
+			return "redirect:" + url.toString();
+		} else {
+			return "redirect:";
+		}
 	}
 
 	private String NAVER_ID = "rl89MptnzWeSIFC0ncAc";
@@ -218,21 +229,19 @@ public class MemberController {
 			response = common.requestAPI(url.toString(), type + " " + token);
 			json = new JSONObject(response);
 			MemberVO vo = new MemberVO();
-			vo.setSocial("N");
+			vo.setSocial("K");
 			vo.setUserid(json.get("id").toString());
 //				별칭이 있으면 별칭을, 없으면 이름을 name 필드에
 			JSONObject kakao = json.getJSONObject("kakao_account");
 			JSONObject profile = kakao.getJSONObject("profile");
 			vo.setName(hasKey(profile, "nickname"));
-			if (vo.getName().isEmpty()) {
-				vo.setName(hasKey(json, "name", "AAA"));
-			}
 			vo.setEmail(hasKey(kakao, "email"));
 			vo.setProfile(hasKey(profile, "thumbnail_image_url"));
 			vo.setGender(hasKey(kakao, "gender", "male").equals("male") ? "남" : "여"); // M/F ==> 남/여
 			vo.setPhone(hasKey(kakao, "phone_number"));
-
-//				DB에 네이버 로그인 정보 저장하기 - 존재여부를 확인하여 신규/변경 저장
+			if (!hasKey(profile, "nickname").isEmpty()) {
+				vo.setName(hasKey(profile, "nickname", vo.getName()));
+			}
 			if (service.member_info(vo.getUserid()) == null) {
 				service.member_join(vo);
 			} else {
