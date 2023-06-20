@@ -11364,3 +11364,102 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 17:55:41.304
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:57:18.908
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'UUID.class' [Unknown/Undefined Content Type]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:57:18.909
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 17:59:01.105
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 17:59:01.108
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:05.885
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'layout.jsp' [JSP]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:05.886
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:13.727
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'customerController.java' [Java Source File]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:13.729
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:22.879
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'CustomerDAO.java' [Java Source File]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 17:59:22.880
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 17:59:59.801
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 17:59:59.804
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:00:29.566
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:00:29.568
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:00:36.366
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'test.java' [Java Source File]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:00:36.367
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:00:36.716
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:00:36.718
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:01:25.738
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-20 18:01:25.744
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:01:56.536
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:01:56.537
+!MESSAGE classpath=2 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:01:56.537
+!MESSAGE buffering callback sts4.classpath.RhvcTlXS testestest false 2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:01:56.537
+!MESSAGE executing callback sts4.classpath.RhvcTlXS 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:01:56.547
+!MESSAGE executing callback sts4.classpath.RhvcTlXS SUCCESS [done]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:02:01.951
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'module-info.java' [Java Source File]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:02:01.952
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:02:13.721
+!MESSAGE Starter:115 	Indent Guide: painter allowed for 'testetse.java' [Java Source File]
+
+!ENTRY net.certiv.tools.indentguide 1 0 2023-06-20 18:02:13.722
+!MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:18:00.062
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.RhvcTlXS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:18:00.062
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.RhvcTlXS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:18:00.062
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-20 18:18:00.062
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.RhvcTlXS => OK

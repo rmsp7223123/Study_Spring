@@ -15,6 +15,7 @@ import smart.customer.CustomerVO;
 
 @Controller
 public class customerController {
+
 	@Autowired
 	private CustomerServiceImpl service;
 

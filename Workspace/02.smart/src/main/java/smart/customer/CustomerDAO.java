@@ -8,20 +8,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CustomerDAO implements CustomerService{
-	@Autowired @Qualifier("hanul") private SqlSession sql;
-	
+public class CustomerDAO implements CustomerService {
+	@Autowired
+	@Qualifier("hanul")
+	private SqlSession sql;
+
 	// 생성된 객체(빈으로 등록된 객체들) 의 주소를 스프링 container에 관리가 됨
 	// IoC(Inversion of Control) 개발자가 필요할 때마다 new 로 객체를 생성 -> 스프링프레임웤이 객체를 생성
-	
-	// DI(Dependency Injection)  객체의 주소를 담아주는(주입) 처리
+
+	// DI(Dependency Injection) 객체의 주소를 담아주는(주입) 처리
 	// 필드에 데이터 담는 방법 2가지
 //	public CustomerDAO(SqlSession sql) {
 //		this.sql = sql;
 //	}
-	
-	//executeQuery, executeUpdate
-	
+
+	// executeQuery, executeUpdate
+
 	@Override
 	public void customer_insert(CustomerVO vo) {
 		sql.insert("customer.insert", vo);
