@@ -184,6 +184,66 @@ public class MemberController {
 		return json.has(key) ? json.getString(key) : value;
 	}
 
+//	카카오 로그인 요청
+	@RequestMapping("/kakaoLogin")
+	public String kakaoLogin(HttpSession session, HttpServletRequest request) {
+		String state = UUID.randomUUID().toString();
+		session.setAttribute("state", state);
+		StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/authorize?response_type=code");
+		url.append("&client_id=").append(KAKAO_ID);
+		url.append("&redirect_uri=").append(common.appURL(request)).append("/member/kakaoCallback");
+		return "redirect:" + url.toString();
+	}
+
+//	카카오 callback 요청
+	@RequestMapping("/kakaoCallback")
+	public String kakaoCallback(String code, String state, HttpSession session) {
+		String sessionState = (String) session.getAttribute("state");
+		if (code == null) {
+			return "redirect:/";
+		} else {
+			StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/token?grant_type=authorization_code");
+			url.append("&client_id=").append(KAKAO_ID);
+//			url.append("&redirect_uri=").append("");
+			url.append("&code=").append(code);
+
+			String response = common.requestAPI(url.toString());
+
+//			문자열 --> JSON
+			JSONObject json = new JSONObject(response);
+			String token = json.getString("access_token");
+			String type = json.getString("token_type");
+
+			url = new StringBuffer("https://kapi.kakao.com/v2/user/me");
+			response = common.requestAPI(url.toString(), type + " " + token);
+			json = new JSONObject(response);
+			MemberVO vo = new MemberVO();
+			vo.setSocial("N");
+			vo.setUserid(json.get("id").toString());
+//				별칭이 있으면 별칭을, 없으면 이름을 name 필드에
+			JSONObject kakao = json.getJSONObject("kakao_account");
+			JSONObject profile = kakao.getJSONObject("profile");
+			vo.setName(hasKey(profile, "nickname"));
+			if (vo.getName().isEmpty()) {
+				vo.setName(hasKey(json, "name", "AAA"));
+			}
+			vo.setEmail(hasKey(kakao, "email"));
+			vo.setProfile(hasKey(profile, "thumbnail_image_url"));
+			vo.setGender(hasKey(kakao, "gender", "male").equals("male") ? "남" : "여"); // M/F ==> 남/여
+			vo.setPhone(hasKey(kakao, "phone_number"));
+
+//				DB에 네이버 로그인 정보 저장하기 - 존재여부를 확인하여 신규/변경 저장
+			if (service.member_info(vo.getUserid()) == null) {
+				service.member_join(vo);
+			} else {
+				service.member_update(vo);
+			}
+			session.setAttribute("loginInfo", vo);
+
+			return "redirect:/";
+		}
+	}
+
 	/*
 	 * @RequestMapping("/login") public String login() {
 	 * 

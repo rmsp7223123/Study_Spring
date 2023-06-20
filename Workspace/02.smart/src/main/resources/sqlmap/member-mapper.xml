@@ -5,8 +5,7 @@
 	<insert id="joinTest">
 		insert into member (name, userid, userpw, email)
 		values (#{name}, #{userid}, #{userpw}, #{email})
-	</insert>
-	<!-- 회원정보 변경저장 -->
+	</insert>	<!-- 회원정보 변경저장 -->
 	<update id="update">
 		update member set name = #{name}, gender = #{gender},
 		email = #{email, jdbcType=VARCHAR},
@@ -22,6 +21,23 @@
 
 	<!-- 회원가입 -->
 	<insert id="join">
+		insert into member (name, userid, userpw, gender,
+		email, profile, birth, phone, post, address, social)
+		values (#{name},
+		#{userid}, #{userpw, jdbcType=VARCHAR}, #{gender}, #{email,
+		jdbcType=VARCHAR},
+		#{profile, jdbcType=VARCHAR}, #{birth,
+		jdbcType=VARCHAR},
+		#{phone,
+		jdbcType=VARCHAR}, #{post,
+		jdbcType=VARCHAR}, #{address,
+		jdbcType=VARCHAR},
+		#{social,
+		jdbcType=VARCHAR})
+	</insert>
+
+	<!-- 회원가입 -->
+	<insert id="join2">
 		insert into member (name, userid, userpw, gender,
 		email, profile, birth, phone, post, address, social)
 		values (#{name},
