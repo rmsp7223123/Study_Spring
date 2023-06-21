@@ -30,6 +30,13 @@ public class MemberController {
 	@Autowired
 	private MemberDAO service;
 
+//	회원가입 화면 요청
+	@RequestMapping("/join")
+	public String join(HttpSession session) {
+		session.setAttribute("category", "join");
+		return "member/join";
+	}
+
 //	로그인 처리 요청
 	@RequestMapping(value = "/smartLogin")
 	public String login1(String userid, String userpw, HttpSession session, HttpServletRequest req,

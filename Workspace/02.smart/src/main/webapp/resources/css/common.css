@@ -55,3 +55,37 @@ a.text-link:hover {
 .font-profile {
 	font-size: 38px;
 }
+
+.w-px100 {
+	width: 100px;
+}
+
+.w-px90 {
+	width: 90px;
+}
+
+.w-px80 {
+	width: 80px;
+}
+
+.w-px70 {
+	width: 70px;
+}
+
+.w-px60 {
+	width: 60px;
+}
+
+.date+.date-delete {
+	position: relative;
+	right: 45px;
+	display: none;
+}
+
+input[type=file] {
+	display: none;
+}
+
+.file-preview img {
+	max-height: 38px;
+}

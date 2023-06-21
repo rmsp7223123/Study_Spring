@@ -25,6 +25,9 @@
 	<c:when test="${category eq 'vi'}">
 		<c:set var="title" value="시각화" />
 	</c:when>
+	<c:when test="${category eq 'join'}">
+		<c:set var="title" value="회원가입" />
+	</c:when>
 </c:choose>
 <head>
 <meta charset="utf-8" />
@@ -77,6 +80,7 @@
 					href="#!">공공데이터</a> <a
 					class="${category eq 'vi' ? 'active':''} list-group-item list-group-item-action list-group-item-light p-3"
 					href="#!">시각화</a>
+
 			</div>
 		</div>
 		<!-- Page content wrapper-->
@@ -99,7 +103,8 @@
 							<c:if test="${empty loginInfo}">
 								<li class="nav-item"><a
 									href="<c:url value='/member/login'/>" class="nav-link">로그인</a></li>
-								<li class="nav-item"><a href="#!" class="nav-link">회원가입</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="<c:url value ='/member/join'/>"> 회원가입</a></li>
 							</c:if>
 							<!-- 로그인이 되어있는 경우 -->
 							<c:if test="${not empty loginInfo}">

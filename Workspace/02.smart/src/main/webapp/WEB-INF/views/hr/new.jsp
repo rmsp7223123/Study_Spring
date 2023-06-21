@@ -42,7 +42,7 @@
 				<th>전화번호</th>
 				<td><div class="row">
 						<div class="col-auto">
-							<input type="text" class="form-control" name="phone_number"
+							<input type="text" class="form-control" name="phone"
 								value="${vo.phone_number }">
 						</div>
 					</div></td>
