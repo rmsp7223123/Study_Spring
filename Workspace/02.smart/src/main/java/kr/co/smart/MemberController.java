@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import smart.common.CommonUtility;
@@ -29,6 +30,37 @@ public class MemberController {
 	private BCryptPasswordEncoder pe;
 	@Autowired
 	private MemberDAO service;
+
+//	회원가입 처리 요청
+	@RequestMapping(value = "/register", produces = "text/html; charset=utf-8")
+	@ResponseBody
+	public String register(MemberVO vo, HttpServletRequest req, MultipartFile file) {
+		if (!file.isEmpty()) { // 첨부파일이 있는경우
+//			서버의 물리적인 영역에 파일을 저장하는 처리
+		}
+//		화면에서 입력한 정보로 DB에 신규회원 정보를 저장한 후
+//		회원가입 성공여부를 alert으로 띄움
+		vo.setUserpw(pe.encode(vo.getUserpw()));
+		StringBuffer msg = new StringBuffer("<script>");
+		if (service.member_join(vo) == 1) {
+			msg.append("alert('회원가입을 축하합니다.'); location='").append(req.getContextPath()).append("'");
+		} else {
+			msg.append("alert('회원가입 실패'); history.go(-1)");
+		}
+		msg.append("</script>");
+
+		return msg.toString();
+
+	}
+
+//	아이디 중복확인 처리 요청
+	@RequestMapping("/useridCheck")
+	@ResponseBody
+	public boolean useridCheck(String userid) {
+//		화면에서 입력한 아이디가 DB에 있는지 여부를 확인
+
+		return service.member_info(userid) == null ? true : false;
+	}
 
 //	회원가입 화면 요청
 	@RequestMapping("/join")

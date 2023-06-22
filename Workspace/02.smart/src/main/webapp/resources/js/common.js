@@ -25,7 +25,17 @@ function modalAlert(type, title, message) {
 $(document).on('click', '.date + .date-delete', function() {
 	$(this).css('display', 'none'); // 삭제버튼 안보이게
 	$(this).prev('.date').val('');
+
+}).on('click', '#file-attach .file-delete', function() {
+	$(this).addClass('d-none'); // 삭제버튼 안보이게
+	$('input[type=file]').val(''); // 첨부되어 있떤 이미지파일 없애기
+	var _preview = $('#file-attach .file-preview');
+	if (_preview.length > 0) {
+		_preview.empty();
+	}
 })
+
+
 //파일이 이미지파일인지 확인
 function isImage(filename) {
 	var ext = filename.substr(filename.lastIndexOf('.') + 1).toLowerCase();
@@ -42,6 +52,7 @@ $(function() {
 		if (attached) {
 			//이미지 파일인지 확인
 			if (isImage(attached.name)) {
+				singleFile = attached; // 선택한 파일정보를 관리
 				_delete.removeClass('d-none');
 				//미리보기 태그가 있을때에만
 				if (_preview.length > 0) {
@@ -55,6 +66,7 @@ $(function() {
 					}
 				}
 			} else {
+				singleFile = ''; // 이미지파일이 아닌 경우 관리정보를 초기화
 				//이전에 선택했던 이미지 파일 처리
 				_preview.empty();
 				// 실제 file태그의 정보 초기화
@@ -62,8 +74,13 @@ $(function() {
 				_delete.addClass('d-none');
 			}
 
+		} else {
+			// 파일선택 창에서 취소를 클릭한 경우 : 어떠한 처리도 하지 않음
+			// 파일정보는 관리된 singleFile 변수에 있음
 		}
 	})
+
+
 
 	$('.date').change(function() {
 		$(this).next('.date-delete').css('display', 'inline')
