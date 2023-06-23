@@ -37,12 +37,16 @@ public class MemberController {
 	public String register(MemberVO vo, HttpServletRequest req, MultipartFile file) {
 		if (!file.isEmpty()) { // 첨부파일이 있는경우
 //			서버의 물리적인 영역에 파일을 저장하는 처리
+			vo.setProfile(common.fileUpload("profile", file, req));
 		}
 //		화면에서 입력한 정보로 DB에 신규회원 정보를 저장한 후
 //		회원가입 성공여부를 alert으로 띄움
 		vo.setUserpw(pe.encode(vo.getUserpw()));
 		StringBuffer msg = new StringBuffer("<script>");
 		if (service.member_join(vo) == 1) {
+			String welcomeFile = req.getSession().getServletContext().getRealPath("/resources/files/pepe10.jpg");
+			common.sendWelcome(vo, welcomeFile);
+
 			msg.append("alert('회원가입을 축하합니다.'); location='").append(req.getContextPath()).append("'");
 		} else {
 			msg.append("alert('회원가입 실패'); history.go(-1)");
@@ -136,7 +140,7 @@ public class MemberController {
 			url.append("&logout_redirect_uri=").append(common.appURL(request));
 			return "redirect:" + url.toString();
 		} else {
-			return "redirect:";
+			return "redirect:/";
 		}
 	}
 

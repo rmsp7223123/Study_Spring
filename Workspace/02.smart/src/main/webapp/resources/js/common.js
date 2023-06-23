@@ -43,6 +43,18 @@ function isImage(filename) {
 	return imgs.indexOf(ext) == -1 ? false : true;
 }
 
+//첨부파일 크기 제한 함수
+function rejectedFile(fileInfo, tag) {
+	// 1024byte = 1kb , 1024*1024byte = 1MB, ...
+	if (fileInfo.size > 1024 * 1024 * 10) {
+		alert("10MB 이하의 파일만 첨부가 가능합니다.")
+		tag.val('');
+		return true;
+	} else {
+		return false;
+	}
+}
+
 $(function() {
 	$('input#file-single').change(function() {
 		var _preview = $('#file-attach .file-preview');
@@ -50,6 +62,8 @@ $(function() {
 
 		var attached = this.files[0];
 		if (attached) {
+			//파일사이즈 제한
+			if (rejectedFile(attached, $(this))) return;
 			//이미지 파일인지 확인
 			if (isImage(attached.name)) {
 				singleFile = attached; // 선택한 파일정보를 관리

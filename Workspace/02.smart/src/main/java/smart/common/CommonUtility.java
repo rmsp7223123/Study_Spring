@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,7 +24,10 @@ public class CommonUtility {
 	// 파일업로드
 	public String fileUpload(String category, MultipartFile file, HttpServletRequest req) {
 		// D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\02.smart\resources
-		String path = req.getSession().getServletContext().getRealPath("resources");
+
+//		D:\Spring_app\smart
+//		String path = req.getSession().getServletContext().getRealPath("resources");
+		String path = "D:\\Spring_app" + req.getContextPath();
 		String upload = "/upload/" + category + new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 		path += upload;
 		// 파일을 저장해 둘 폴더가 없는경우 폴더 만들기
@@ -35,6 +39,7 @@ public class CommonUtility {
 			file.transferTo(new File(path, filename));
 		} catch (Exception e) {
 		}
+//		http://192.168.0.87/smart/upload/profile/2023/06/23/abc.pmg
 		return appURL(req) + upload + "/" + filename;
 	}
 
@@ -44,7 +49,7 @@ public class CommonUtility {
 		email.setSSLOnConnect(true); // 로그인
 	}
 
-	private String EMAIL_ADDRESS = "mbj98@naver.com";
+	private String EMAIL_ADDRESS = "rmsp7223123@naver.com";
 
 //	context root url 지정
 	public String appURL(HttpServletRequest req) {
@@ -55,7 +60,36 @@ public class CommonUtility {
 		return url.toString();
 	}
 
-//	이메일 보내기 처리
+//	이메일 보내기 : 회원가입 축하 메시지 전송
+	public void sendWelcome(MemberVO vo, String welcomeFile) {
+		HtmlEmail email = new HtmlEmail();
+		email.setCharset("utf-8");
+		email.setDebug(true);
+//		이메일 서버 지정
+		emailServerConnect(email);
+		try {
+			email.setFrom(EMAIL_ADDRESS, "스마트웹&앱 관리자");
+			email.addTo(vo.getEmail(), vo.getName());
+			email.setSubject("회원가입 축하메시지 확인");
+			StringBuffer content = new StringBuffer();
+
+			content.append("<body>");
+			content.append(
+					"<h3><a target='_blank' href='https://t1.daumcdn.net/cfile/tistory/270F6B3A567D7EA706'>한울 스마트 웹&앱 과정</a></h3>");
+			content.append("<div>가입을 축하합니다.</div>");
+			content.append("<div>첨부된 파일을 확인해주세요.</div>");
+			content.append("</body>");
+			email.setHtmlMsg(content.toString());
+			EmailAttachment file = new EmailAttachment();
+			file.setPath(welcomeFile); // 파일 선택
+			email.attach(file); // 파일 첨부
+			email.send();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+//	이메일 보내기 처리 : 임시비밀번호 전송
 	public boolean sendPassword(MemberVO vo, String pw) {
 		boolean send = true;
 		HtmlEmail email = new HtmlEmail();
