@@ -48,6 +48,8 @@ public class MemberController {
 			common.sendWelcome(vo, welcomeFile);
 
 			msg.append("alert('회원가입을 축하합니다.'); location='").append(req.getContextPath()).append("'");
+
+			req.getSession().setAttribute("loginInfo", vo); // 회원가입시 자동로그인
 		} else {
 			msg.append("alert('회원가입 실패'); history.go(-1)");
 		}

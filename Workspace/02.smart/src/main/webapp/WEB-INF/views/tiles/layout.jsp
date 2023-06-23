@@ -73,7 +73,7 @@
 					class="${category eq 'hr' ? 'active':''} list-group-item list-group-item-action list-group-item-light p-3"
 					href="<c:url value = '/hr/list'/>"> 사원관리</a> <a
 					class="${category eq 'no' ? 'active':''} list-group-item list-group-item-action list-group-item-light p-3"
-					href="#!">공지사항</a> <a
+					href="<c:url value = '/notice/list'/>">공지사항</a> <a
 					class="${category eq 'bo' ? 'active':''} list-group-item list-group-item-action list-group-item-light p-3"
 					href="#!">방명록</a> <a
 					class="${category eq 'da' ? 'active':''} list-group-item list-group-item-action list-group-item-light p-3"
