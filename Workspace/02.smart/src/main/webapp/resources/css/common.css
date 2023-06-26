@@ -4,7 +4,7 @@ a {
 	color: initial
 }
 
-a:link, a:hover {
+a:not(.btn):link, a:not(.btn):hover {
 	text-decoration: none;
 	color: inherit;
 }
@@ -88,4 +88,9 @@ input[type=file] {
 
 .file-preview img {
 	max-height: 38px;
+}
+
+textarea.form-control {
+	height: 400px;
+	resize: none;
 }

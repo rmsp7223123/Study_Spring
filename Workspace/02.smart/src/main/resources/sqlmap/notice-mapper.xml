@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<select id="list" resultType="smart.notice.NoticeVO">
+		select row_number() over(order by
+		id) no, n.*, name
+		from notice n inner join member m on n.writer =
+		m.userid order by 1 desc
+	</select>
+	<insert id="insert">
+		insert into notice(title, content, writer, filename,
+		filepath)
+		values(#{title},#{content},#{writer},#{filename,
+		jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR})
+	</insert>
+</mapper>

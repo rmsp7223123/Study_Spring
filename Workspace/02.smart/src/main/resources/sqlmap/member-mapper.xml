@@ -3,8 +3,9 @@
 <mapper namespace="member">
 	<!-- 테스트용 회원가입 -->
 	<insert id="joinTest">
-		insert into member (name, userid, userpw, email)
-		values (#{name}, #{userid}, #{userpw}, #{email})
+		insert into member (name, userid, userpw, email,
+		admin)
+		values (#{name}, #{userid}, #{userpw}, #{email}, #{admin})
 	</insert>	<!-- 회원정보 변경저장 -->
 	<update id="update">
 		update member set name = #{name}, gender = #{gender},

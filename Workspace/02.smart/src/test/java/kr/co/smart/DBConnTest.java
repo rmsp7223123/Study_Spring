@@ -41,6 +41,8 @@ public class DBConnTest {
 		vo.setUserpw(pe.encode(sc.next()));
 		System.out.println("이메일을 입력해주세요.");
 		vo.setEmail(sc.next());
+		System.out.println("관리자 여부(Y/N) : ");
+		vo.setAdmin(sc.next().toUpperCase());
 
 //		DML(Date Manipulation Language) : select, insert, update, delete
 //		Query Language : select

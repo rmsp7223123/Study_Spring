@@ -9,6 +9,14 @@
 </head>
 <body>
 	<h3 class="my-4">공지글 목록</h3>
+
+	<div class="row">
+		<c:if test="${loginInfo.admin eq 'Y'}">
+			<div class="col-auto">
+				<a href="new" class="btn btn-primary">새글쓰기</a>
+			</div>
+		</c:if>
+	</div>
 	<table class="tb-list">
 		<colgroup>
 			<col width="100px" />
@@ -22,12 +30,21 @@
 			<th>작성자</th>
 			<th>작성일자</th>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>제목확인</td>
-			<td>작성자확인</td>
-			<td>2023-06-23</td>
-		</tr>
+		<c:if test="${empty list }">
+			<tr>
+				<td colspan="4">공지글이 없습니다</td>
+			</tr>
+		</c:if>
+
+		<c:forEach items="${list}" var="vo">
+			<tr>
+				<td>${vo.no}</td>
+				<td class="text-start"><a href="#">${vo.title}</a></td>
+				<td>${vo.name}</td>
+				<td>${vo.writedate}</td>
+			</tr>
+		</c:forEach>
+
 	</table>
 </body>
 </html>

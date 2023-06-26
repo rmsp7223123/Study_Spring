@@ -32,9 +32,29 @@ create or replace trigger trg_notice
 begin
     select seq_notice.nextval into :new.id from dual;
 end;
+/
 
 
 insert into notice (id, title, content, writer) values (seq_notice.nextval, '테스트 공지글', '내용', '홍길동');
 insert into notice (title, content, writer) values ('테스트 공지글2', '내용2', '홍길동');
 
 commit;
+
+select name, userid, admin from member;
+
+select * from notice;
+
+update notice
+set writer = case when id = '3' then 'admin' else 'admin2' end;
+
+commit;
+
+insert into notice(title, content, writer)
+select title, content, writer from notice;
+
+-- 데이터 행을 조회해온 순서에 해당하는 컬럼 : rownum
+select rownum, n.* from (select n.*, m.name from notice n
+		inner join member m on n.writer = m.userid order by id desc)n order by 1 desc; 
+
+select row_number() over(order by id) no, n.*, name 
+from notice n inner join member m on n.writer = m.userid order by 1 desc;
