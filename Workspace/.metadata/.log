@@ -13859,3 +13859,15 @@ org.eclipse.core.internal.resources.ResourceException: Marker id 20018 not found
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-26 17:59:25.825
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-26 18:05:09.087
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.hbPsIxDu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-26 18:05:09.087
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.hbPsIxDu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-26 18:05:09.088
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-26 18:05:09.088
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.hbPsIxDu => OK

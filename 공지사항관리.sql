@@ -58,3 +58,5 @@ select rownum, n.* from (select n.*, m.name from notice n
 
 select row_number() over(order by id) no, n.*, name 
 from notice n inner join member m on n.writer = m.userid order by 1 desc;
+
+commit;
