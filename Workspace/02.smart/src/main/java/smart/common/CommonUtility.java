@@ -2,24 +2,56 @@ package smart.common;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import smart.member.MemberVO;
 
 @Service
 public class CommonUtility {
+
+	// 파일 다운로드
+	public void fileDownload(String filename, String filepath, HttpServletRequest req, HttpServletResponse res) {
+//		filepath = http://192.168.0.87/smart/upload/profile/2023/06/23/abc.pmg
+//		appURL = http://192.168.0.87/smart
+		filepath = filepath.replace(appURL(req), "d://Spring_app/" + req.getContextPath());
+
+//		다운로드 할 파일객체 생성
+		File file = new File(filepath);
+		String mime = req.getSession().getServletContext().getMimeType(filepath);
+		res.setContentType(mime);
+//		파일 IO : 읽기/쓰기 = 단위 문자 : reader/writer, 단위 byte : input/output 
+//		파일을 첨부해서 쓰기작업하기
+		try {
+			filename = URLEncoder.encode(filename, "utf-8").replaceAll("\\+", "%20");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		res.setHeader("content-disposition", "attachment; filename =" + filename);
+		try {
+			FileCopyUtils.copy(new FileInputStream(file), res.getOutputStream());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	// 파일업로드
 	public String fileUpload(String category, MultipartFile file, HttpServletRequest req) {

@@ -23,12 +23,14 @@
 			<col />
 			<col width="120px" />
 			<col width="120px" />
+			<col width="100px" />
 		</colgroup>
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
 			<th>작성일자</th>
+			<th>첨부파일</th>
 		</tr>
 		<c:if test="${empty list }">
 			<tr>
@@ -39,9 +41,13 @@
 		<c:forEach items="${list}" var="vo">
 			<tr>
 				<td>${vo.no}</td>
-				<td class="text-start"><a href="#">${vo.title}</a></td>
+				<td class="text-start"><a class="text-link"
+					href="info?id=${vo.id}">${vo.title}</a></td>
 				<td>${vo.name}</td>
 				<td>${vo.writedate}</td>
+				<td><c:if test="${!empty vo.filename }">
+						<i class="fa-regular fa-file"></i>
+					</c:if></td>
 			</tr>
 		</c:forEach>
 

@@ -229,17 +229,6 @@ table th span {
 					$('form').submit();
 				})
 
-		function singleFileUpload() {
-			if (singleFile != null) {
-				var transfer = new DataTransfer();
-				transfer.items.add(singleFile);
-				//화면 태그 속성 : attribute : 기본에 해당, 나중에 속성추가지정 : property
-				$('input[type=file]').prop('files', transfer.files)
-				console.log($('input[type=file]').prop('files', transfer.files)
-						.val());
-			}
-		}
-
 		//체크 항목에 입력을 유효하게 했는지 확인
 		function invalidStatus(tag) {
 			var status = member.tagStatus(tag);
@@ -325,8 +314,6 @@ table th span {
 			// 					.getDate() - 1);
 			$('[name=birth]').datepicker('option', 'maxDate', endDay);
 		})
-
-		var singleFile = ''; // 파일 선택시 선택한 첨부파일정보를 담아 둘 변수
 	</script>
 
 
