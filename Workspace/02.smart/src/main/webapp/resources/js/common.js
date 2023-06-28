@@ -178,7 +178,7 @@ function emptyCheck() {
 // 파일첨부 정보 file태그에 담기
 var singleFile = ''; // 파일 선택시 선택한 첨부파일정보를 담아 둘 변수
 function singleFileUpload() {
-	if (singleFile != null) {
+	if (singleFile != '') {
 		var transfer = new DataTransfer();
 		transfer.items.add(singleFile);
 		//화면 태그 속성 : attribute : 기본에 해당, 나중에 속성추가지정 : property

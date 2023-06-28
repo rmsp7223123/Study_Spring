@@ -28,6 +28,16 @@ import smart.member.MemberVO;
 @Service
 public class CommonUtility {
 
+	// 첨부파일 삭제 : 디스크에 저장된 물리적 파일 삭제
+	public void deletedFile(String filepath, HttpServletRequest req) {
+		if (filepath != null) {
+			filepath = filepath.replace(appURL(req), "d://Spring_app/" + req.getContextPath());
+			File file = new File(filepath);
+			if (file.exists())
+				file.delete();
+		}
+	}
+
 	// 파일 다운로드
 	public void fileDownload(String filename, String filepath, HttpServletRequest req, HttpServletResponse res) {
 //		filepath = http://192.168.0.87/smart/upload/profile/2023/06/23/abc.pmg

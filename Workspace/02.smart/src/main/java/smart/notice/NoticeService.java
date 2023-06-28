@@ -2,11 +2,15 @@ package smart.notice;
 
 import java.util.List;
 
+import smart.common.PageVO;
+
 public interface NoticeService {
 	// CRUD
 	int notice_regist(NoticeVO vo);// 공지글 신규 저장
 
 	List<NoticeVO> notice_list();// 공지글 목록 조회
+
+	PageVO notice_list(PageVO page);// 해당 페이지의 공지글 목록 조회
 
 	NoticeVO notice_info(int id);// 공지글 정보 조회
 
