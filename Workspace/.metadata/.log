@@ -3222,3 +3222,15 @@ java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-bea
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-06-29 17:51:34.616
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-29 17:58:39.491
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.rFZuroal
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-29 17:58:39.491
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.rFZuroal
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-29 17:58:39.491
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-06-29 17:58:39.492
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.rFZuroal => OK
