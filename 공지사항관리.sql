@@ -9,6 +9,9 @@ create table notice(
     readcnt NUMBER DEFAULT 0, -- 조회수
     filename VARCHAR2(300),
     filepath VARCHAR2(600),
+    root number, -- 답글관리를 위한 id
+    step number default 0, -- 글 순서
+    indent number default 0, -- 들여쓰기
     constraint notice_writer_fk FOREIGN KEY(writer)
         REFERENCES member(userid)
 );
@@ -31,6 +34,13 @@ create or replace trigger trg_notice
     for each row
 begin
     select seq_notice.nextval into :new.id from dual;
+    if( :new.root is null) then
+--    원글인 경우 root에 값을 넣기 위한 처리
+    select seq_notice.currval into :new.root from dual;
+    else 
+    --답글인 경우 순서를 위한 step변경처리
+        update notice set step = step + 1 where root = :old.root and step > :old.step;
+end if;
 end;
 /
 
@@ -60,3 +70,13 @@ select row_number() over(order by id) no, n.*, name
 from notice n inner join member m on n.writer = m.userid order by 1 desc;
 
 commit;
+
+alter table notice add (
+root number,
+step number default 0,
+indent number default 0
+);
+
+select * from notice order by 1 desc;
+
+update notice set root = id;

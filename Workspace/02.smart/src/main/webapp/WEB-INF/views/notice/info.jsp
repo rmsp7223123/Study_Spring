@@ -49,14 +49,19 @@
 		</tr>
 	</table>
 	<jsp:include page="/WEB-INF/views/include/modal_image.jsp" />
-
+	<c:set var="params"
+		value="curPage=${page.curPage}&search=${page.search}&keyword=${page.keyword}" />
 	<div class="btn-toolbar gap-2 my-3 justify-content-center">
-		<a class="btn btn-primary" href="list">공지글목록</a>
+		<a class="btn btn-primary" href="list?${params}">공지글목록</a>
 		<!-- 관리자로 로그인 한 경우만 수정/삭제 가능 -->
 		<c:if test="${loginInfo.admin eq 'Y'}">
-			<a class="btn btn-primary" href="modify?id=${vo.id}">공지글수정</a>
+			<a class="btn btn-primary" href="modify?id=${vo.id}&${params}">공지글수정</a>
 			<a class="btn btn-primary"
-				href="javascript:if(confirm('이 공지글을 삭제하시겠습니까?') ){location ='delete?id=${vo.id}'}">공지글삭제</a>
+				href="javascript:if(confirm('이 공지글을 삭제하시겠습니까?') ){location ='delete?id=${vo.id}&${params}'}">공지글삭제</a>
+		</c:if>
+		<!--로그인 한 경우만 답글쓰기 가능 -->
+		<c:if test="${!empty loginInfo}">
+			<a class="btn btn-primary" href="reply?id=${vo.id}&${params}">답글쓰기</a>
 		</c:if>
 	</div>
 

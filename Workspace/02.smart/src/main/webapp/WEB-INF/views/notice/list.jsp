@@ -6,17 +6,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.input-group .form-select {
+	flex: initial;
+	width: 130px;
+}
+</style>
 </head>
 <body>
 	<h3 class="my-4">공지글 목록</h3>
-
-	<div class="row">
-		<c:if test="${loginInfo.admin eq 'Y'}">
+	<form method="post" action="list">
+		<input type="hidden" name="curPage" value="1" />
+		<div class="row justify-content-between mb-3">
 			<div class="col-auto">
-				<a href="new" class="btn btn-primary">새글쓰기</a>
+				<div class="input-group">
+					<select name="search" id="" class="form-select">
+						<option value="all" ${page.search eq 'all' ? 'selected' : ''}>전체</option>
+						<option value="title"
+							<c:if test="${page.search eq 'title'}">selected</c:if>>제목</option>
+						<option value="content"
+							${page.search eq 'content' ? 'selected' : '' }>내용</option>
+						<option value="writer"
+							${page.search eq 'writer' ? 'selected' : '' }>작성자</option>
+						<option value="t_c" ${page.search eq 't_c' ? 'selected' : '' }>제목+내용</option>
+					</select> <input type="text" value="${page.keyword}" name="keyword"
+						class="form-control" />
+					<button class="btn btn-primary px-3">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</div>
 			</div>
-		</c:if>
-	</div>
+			<c:if test="${loginInfo.admin eq 'Y'}">
+				<div class="col-auto">
+					<a href="new" class="btn btn-primary">새글쓰기</a>
+				</div>
+			</c:if>
+		</div>
+	</form>
 	<table class="tb-list">
 		<colgroup>
 			<col width="100px" />
@@ -42,7 +68,7 @@
 			<tr>
 				<td>${vo.no}</td>
 				<td class="text-start"><a class="text-link"
-					href="info?id=${vo.id}">${vo.title}</a></td>
+					href="info?id=${vo.id}&curPage=${page.curPage}&search=${page.search}&keyword=${page.keyword}">${vo.title}</a></td>
 				<td>${vo.name}</td>
 				<td>${vo.writedate}</td>
 				<td><c:if test="${!empty vo.filename }">

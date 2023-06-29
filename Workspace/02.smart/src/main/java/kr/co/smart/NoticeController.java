@@ -1,5 +1,8 @@
 package kr.co.smart;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,11 +29,16 @@ public class NoticeController {
 	@Autowired
 	private CommonUtility common;
 
-	//
+	// 답글쓰기 요청
+	@RequestMapping("/reply")
+	public String reply() {
+		return "notice/reply";
+	}
 
 	// 공지글 정보 수정 후 저장처리
 	@RequestMapping("/update")
-	public String update(NoticeVO vo, MultipartFile file, HttpServletRequest req) {
+	public String update(NoticeVO vo, MultipartFile file, HttpServletRequest req, PageVO page)
+			throws UnsupportedEncodingException {
 		// 원래 첨부되어 있던 파일정보 조회
 		NoticeVO before = service.notice_info(vo.getId());
 
@@ -62,20 +70,22 @@ public class NoticeController {
 
 			}
 		}
-		return "redirect:info?id=" + vo.getId();
+		return "redirect:info?id=" + vo.getId() + "&curPage=" + page.getCurPage() + "&search=" + page.getSearch()
+				+ "&keyword=" + URLEncoder.encode(page.getKeyword(), "utf-8");
 	}
 
 	// 공지글정보 수정 요청
 	@RequestMapping("/modify")
-	public String modify(int id, Model model) {
+	public String modify(int id, Model model, PageVO page) {
 //		해당글의 정보를 DB에서 조회해 수정화면에 출력할 수 있도록 model에 담음
 		model.addAttribute("vo", service.notice_info(id));
+		model.addAttribute("page", page);
 		return "notice/modify";
 	}
 
 	// 공지글정보 삭제 요청
 	@RequestMapping("/delete")
-	public String delete(int id, HttpServletRequest req) {
+	public String delete(int id, HttpServletRequest req, PageVO page) throws UnsupportedEncodingException {
 
 		// 첨부파일이 있는 경우 물리적인 파일을 찾아 삭제 할 수 있도록 파일 정보를 조회
 		NoticeVO vo = service.notice_info(id);
@@ -83,7 +93,8 @@ public class NoticeController {
 			common.deletedFile(vo.getFilepath(), req);
 		}
 		service.notice_delete(id);
-		return "redirect:list";
+		return "redirect:list?" + "curPage=" + page.getCurPage() + "&search=" + page.getSearch() + "&keyword="
+				+ URLEncoder.encode(page.getKeyword(), "utf-8");
 	}
 
 	// 공지글 첨부파일 다운로드처리 요청
@@ -96,7 +107,7 @@ public class NoticeController {
 
 	// 공지글 정보 화면 요청
 	@RequestMapping("/info")
-	public String info(int id, Model model) {
+	public String info(int id, Model model, PageVO page) {
 		// 조회수 증가처리
 		service.notice_read(id);
 
@@ -104,6 +115,7 @@ public class NoticeController {
 		model.addAttribute("crlf", "\r\n"); // Carriage Return Line feed
 		model.addAttribute("lf", "\n"); // Line feed
 		model.addAttribute("vo", service.notice_info(id));
+		model.addAttribute("page", page);
 		return "notice/info";
 	}
 

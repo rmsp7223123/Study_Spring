@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PageVO {
+	private String search, keyword = "";
 	private int totalList, totalPage, totalBlock, beginList, endList, curBlock, beginPage, endPage;
 	private int pageList = 10;
 	private int blockPage = 10;
