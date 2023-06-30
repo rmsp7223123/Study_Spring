@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3 class="my4">공지글 수정</h3>
+	<h3 class="my4">${vo.indent eq 0 ? '공지글' : '답글'}수정</h3>
 	<form method="post" enctype="multipart/form-data" action="update">
 		<table class="tb-row">
 			<colgroup>

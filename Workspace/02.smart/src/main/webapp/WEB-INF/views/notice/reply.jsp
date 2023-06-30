@@ -9,7 +9,8 @@
 </head>
 <body>
 	<h3 class="my4">답글 작성</h3>
-	<form method="post" enctype="multipart/form-data" action="register">
+	<form method="post" enctype="multipart/form-data"
+		action="reply_register">
 		<table class="tb-row">
 			<colgroup>
 				<col width="180px" />
@@ -42,6 +43,13 @@
 			</tr>
 		</table>
 		<input type="hidden" name="writer" value="${loginInfo.userid}" />
+		<!--원글관련 정보 -->
+		<input type="hidden" name="root" value="${vo.root}" /> <input
+			type="hidden" name="step" value="${vo.step}" /> <input type="hidden"
+			name="indent" value="${vo.indent}" /> <input type="hidden"
+			name="curPage" value="${page.curPage}" /> <input type="hidden"
+			name="search" value="${page.search}" /> <input type="hidden"
+			name="keyword" value="${page.keyword}" />
 	</form>
 
 	<div class="btn-toolbar gap-2 my-3 justify-content-center">

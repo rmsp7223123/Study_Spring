@@ -8,6 +8,8 @@ public interface NoticeService {
 	// CRUD
 	int notice_regist(NoticeVO vo);// 공지글 신규 저장
 
+	int notice_reply_regist(NoticeVO vo);// 공지글 답글 신규 저장
+
 	List<NoticeVO> notice_list();// 공지글 목록 조회
 
 	PageVO notice_list(PageVO page);// 해당 페이지의 공지글 목록 조회

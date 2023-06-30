@@ -2,6 +2,22 @@
  * 공통 함수 선언 
  */
 
+// 파일관리 객체 생성자 함수
+function FileList() {
+	this.files = [];
+	this.setFile = function(file) {
+		this.files.push(file);
+	}
+
+	this.getFile = function() {
+		return this.files;
+	}
+
+	this.removeFile = function(i) {
+		this.files.splice(i, 1);
+	}
+}
+
 function modalAlert(type, title, message) {
 	$('#modal-alert .modal-title').html(title);
 	$('#modal-alert .modal-body').html(message);

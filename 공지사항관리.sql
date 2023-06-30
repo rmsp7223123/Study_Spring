@@ -37,12 +37,13 @@ begin
     if( :new.root is null) then
 --    원글인 경우 root에 값을 넣기 위한 처리
     select seq_notice.currval into :new.root from dual;
-    else 
-    --답글인 경우 순서를 위한 step변경처리
-        update notice set step = step + 1 where root = :old.root and step > :old.step;
+--    else 
+--    --답글인 경우 순서를 위한 step변경처리
+--        update notice set step = step + 1 where root = :old.root and step > :old.step;
 end if;
 end;
 /
+commit;
 
 
 insert into notice (id, title, content, writer) values (seq_notice.nextval, '테스트 공지글', '내용', '홍길동');
@@ -80,3 +81,44 @@ indent number default 0
 select * from notice order by 1 desc;
 
 update notice set root = id;
+
+create table board(
+    id      NUMBER constraint board_id_pk primary key,
+    title   VARCHAR2(300) NOT NULL,
+    content VARCHAR2(4000) NOT NULL,
+    writer  VARCHAR2(50) NOT NULL, -- 작성자 아이디
+    writedate date default sysdate,
+    readcnt NUMBER DEFAULT 0 -- 조회수
+);
+
+create SEQUENCE seq_board start with 1 increment by 1 nocache;
+
+create or replace trigger trg_board
+before insert on board
+for each row
+begin
+select seq_board.nextval into :new.id from dual;
+end;
+/
+commit;
+
+--방명록에 첨부하는 파일 관리
+create table board_file(
+id      NUMBER constraint board_file_id_pk primary KEY,
+board_id number constraint board_file_fk references board(id) on delete cascade, 
+filename varchar2(300),
+filepath varchar2(600)
+);
+
+create sequence seq_board_file start with 1 increment by 1 nocache;
+
+commit;
+
+create or replace trigger trg_board_file
+before insert on board_file
+for each row
+begin
+select seq_board_file.nextval into :new.id from dual;
+end;
+/
+commit;

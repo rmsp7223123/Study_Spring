@@ -29,9 +29,27 @@ public class NoticeController {
 	@Autowired
 	private CommonUtility common;
 
+	// 답글쓰기 저장처리 요청
+	@RequestMapping("/reply_register")
+	public String reply(NoticeVO vo, PageVO page, MultipartFile file, HttpServletRequest req)
+			throws UnsupportedEncodingException {
+//		화면에서 입력한 답글 정보를 DB에 신규 저장 한 후 응답화면을 목록화면으로 요청
+
+		if (!file.isEmpty()) {
+			vo.setFilename(file.getOriginalFilename());
+			vo.setFilepath(common.fileUpload("notice", file, req));
+		}
+		service.notice_reply_regist(vo);
+		return "redirect:list" + "?curPage=" + page.getCurPage() + "&search=" + page.getSearch() + "&keyword="
+				+ URLEncoder.encode(page.getKeyword(), "utf-8");
+	}
+
 	// 답글쓰기 요청
 	@RequestMapping("/reply")
-	public String reply() {
+	public String reply(int id, PageVO page, Model model) {
+//		답글작성시 필요한 원글의 정보를 조회하고 사용할 수 있도록 Model에 담음
+		model.addAttribute("vo", service.notice_info(id));
+		model.addAttribute("page", page);
 		return "notice/reply";
 	}
 
