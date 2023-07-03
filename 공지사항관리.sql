@@ -122,3 +122,17 @@ select seq_board_file.nextval into :new.id from dual;
 end;
 /
 commit;
+
+--원글을 삭제시 답글들 삭제처리
+create or replace trigger trg_notice_delete
+after delete on notice
+for each row
+begin
+--삭제한 글의 root와 같은 root인 데이터 행을 삭제
+delete from notice where root = :old.root;
+end;
+/
+
+alter trigger trg_notice_delete disable;
+commit;
+

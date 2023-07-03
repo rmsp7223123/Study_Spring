@@ -36,14 +36,16 @@
 		</c:if>
 		<c:forEach items="${page.list}" var="vo">
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${vo.no}</td>
+				<td class="text-start">${vo.title}</td>
+				<td>${vo.writer}</td>
+				<td>${vo.writedate}</td>
+				<td>${vo.readcnt}</td>
 			</tr>
 
 		</c:forEach>
 	</table>
+
+	<jsp:include page="/WEB-INF/views/include/page.jsp"></jsp:include>
 </body>
 </html>
