@@ -138,3 +138,13 @@ commit;
 
 insert into board(title, content, writer) select title, content, writer from board;
 commit;
+
+
+select (select count(*) from board_file where b.id = board_id) filecnt, b.* from
+		(select row_number()
+		over(order by
+		id) no, b.*, name from board b
+		inner
+		join member m on
+		b.writer = m.userid) b
+		order by no desc;
