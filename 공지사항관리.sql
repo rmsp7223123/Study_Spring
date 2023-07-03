@@ -136,3 +136,5 @@ end;
 alter trigger trg_notice_delete disable;
 commit;
 
+insert into board(title, content, writer) select title, content, writer from board;
+commit;

@@ -10,9 +10,11 @@
 <body>
 	<h3 class="my-4">방명록 목록</h3>
 	<div class="row justify-content-between mb-3">
-		<div class="col-auto">
-			<a href="new" class="btn btn-primary">새글쓰기</a>
-		</div>
+		<c:if test="${!empty loginInfo}">
+			<div class="col-auto">
+				<a href="new" class="btn btn-primary">새글쓰기</a>
+			</div>
+		</c:if>
 	</div>
 	<table class="tb-list">
 		<colgroup>
@@ -37,7 +39,12 @@
 		<c:forEach items="${page.list}" var="vo">
 			<tr>
 				<td>${vo.no}</td>
-				<td class="text-start">${vo.title}</td>
+				<td class="text-start">${vo.title}<c:if
+						test="${vo.filecnt > 0}">
+						<i class="fa-solid fa-paperclip"></i>
+					</c:if>
+
+				</td>
 				<td>${vo.writer}</td>
 				<td>${vo.writedate}</td>
 				<td>${vo.readcnt}</td>

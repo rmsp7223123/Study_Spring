@@ -28,14 +28,18 @@
 	</select>
 
 	<select id="list" resultType="smart.board.BoardVO">
-		select * from
-		(select row_number()
+		select (select count(*) from
+		board_file where b.id = board_id) filecnt, b.* from
+		(select
+		row_number()
 		over(order by
 		id) no, b.*, name from board b
 		inner
-		join member m on
+		join
+		member m on
 		b.writer = m.userid) b
-		where no between #{beginList} and #{endList}
+		where no between #{beginList} and
+		#{endList}
 		order by no desc
 
 	</select>
