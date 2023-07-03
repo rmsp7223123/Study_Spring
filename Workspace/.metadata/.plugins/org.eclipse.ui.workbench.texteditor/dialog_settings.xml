@@ -15,6 +15,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="hr"/>
 			<item value=".form-control:focus"/>
 			<item value="list"/>
 			<item value="page-item"/>
@@ -29,7 +30,6 @@
 			<item value="_preview"/>
 			<item value="alert"/>
 			<item value="submit"/>
-			<item value="commit"/>
 		</list>
 		<list key="replacehistory">
 		</list>
