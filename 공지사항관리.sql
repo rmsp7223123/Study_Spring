@@ -17,6 +17,13 @@ create table notice(
         REFERENCES member(userid)
 );
 
+alter table notice add (
+rid number constraint notice_rid_fk references notice(id) on delete cascade
+);
+
+commit;
+
+
 --회원 탈퇴 시?
 --1. writer에 null 넣기 ==> writer 컬럼은 null을 허용해야하고
 --   constraint에 옵션 지정 : on delete set null
@@ -149,3 +156,5 @@ select (select count(*) from board_file where b.id = board_id) filecnt, b.* from
 		join member m on
 		b.writer = m.userid) b
 		order by no desc;
+        
+select * from notice order by id desc;
