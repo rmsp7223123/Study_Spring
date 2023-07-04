@@ -1447,6 +1447,11 @@ progress {
     flex: 0 0 auto;
     width: 25%;
   }
+  .col-xl-3-20 {
+  flex: 0 0 auto;
+    width: 20%;
+  }
+  
   .col-xl-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
@@ -6916,6 +6921,28 @@ textarea.form-control-lg {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.text-truncate-v2 {
+  height : 50px;
+  overflow : hidden;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.text-truncate-v1 {
+  height : 50px;
+ 	overflow : hidden;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.text-truncate-v3 {
+  height : 70px;
+  	overflow : hidden;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .vr {

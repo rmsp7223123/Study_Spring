@@ -5,11 +5,12 @@
 	<insert id="replyRegister">
 		insert into notice(title, content, writer, filename,
 		filepath, root, step,
-		indent) values
+		indent, rid) values
 		(#{title},#{content},#{writer},#{filename,
 		jdbcType=VARCHAR},
 		#{filepath, jdbcType=VARCHAR}, #{root}, #{step}+1,
-		#{indent}+1);
+		#{indent}+1,
+		#{rid})
 	</insert>
 
 	<!-- 총 글의 건수 -->

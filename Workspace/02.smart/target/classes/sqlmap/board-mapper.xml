@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
+
+	<!-- 선택한 방명록 글 조회 -->
+	<select id="info" resultType="smart.board.BoardVO">
+		select b.*, name
+		from board b inner join member m on writer = userid
+		where id = #{id}
+	</select>
+
+	<!-- 검색조건 -->
+	<sql id="searchWhere">
+		<choose>
+			<!-- 전체 -->
+			<when test=" search == 's1' ">where title like '%'||#{keyword}||'%' or content like
+				'%'||#{keyword}||'%' or writer in (select userid from member where
+				name like '%'||#{keyword}||'%')</when>
+			<!-- 제목 -->
+			<when test=" search == 's2' ">
+				where title like '%'||#{keyword}||'%'
+			</when>
+			<!-- 내용 -->
+			<when test=" search == 's3' ">
+				where content like '%'||#{keyword}||'%'
+			</when>
+			<!-- 작성자 -->
+			<when test=" search == 's4' ">
+				where writer in (select userid from member where
+				name
+				like '%'||#{keyword}||'%')
+			</when>
+			<!-- 제목 + 내용 -->
+			<when test=" search == 's5' ">
+				where title like '%'||#{keyword}||'%'
+				or content like
+				'%'||#{keyword}||'%'
+			</when>
+		</choose>
+	</sql>
 	<insert id="register">
 		<selectKey order="AFTER" resultType="integer"
 			keyProperty="id">
@@ -25,11 +62,13 @@
 	<!-- 방명록 글 총 건수 조회 -->
 	<select id="totalList" resultType="integer">
 		select count(*) from board
+		<include refid="searchWhere" />
 	</select>
 
 	<select id="list" resultType="smart.board.BoardVO">
 		select (select count(*) from
-		board_file where b.id = board_id) filecnt, b.* from
+		board_file where b.id = board_id) filecnt,
+		b.* from
 		(select
 		row_number()
 		over(order by
@@ -37,7 +76,9 @@
 		inner
 		join
 		member m on
-		b.writer = m.userid) b
+		b.writer = m.userid
+		<include refid="searchWhere" />
+		) b
 		where no between #{beginList} and
 		#{endList}
 		order by no desc

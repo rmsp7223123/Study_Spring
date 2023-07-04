@@ -12,6 +12,7 @@ create table notice(
     root number, -- 답글관리를 위한 id
     step number default 0, -- 글 순서
     indent number default 0, -- 들여쓰기
+    rid number constraint notice_rid_fk references notice(id) on delete cascade,
     constraint notice_writer_fk FOREIGN KEY(writer)
         REFERENCES member(userid)
 );

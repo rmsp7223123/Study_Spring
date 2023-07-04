@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+table {
+	table-layout: fixed;
+}
+
 .input-group .form-select {
 	flex: initial;
 	width: 130px;
@@ -67,7 +71,7 @@
 		<c:forEach items="${page.list}" var="vo">
 			<tr>
 				<td>${vo.no}</td>
-				<td class="text-start"><span
+				<td class="text-start text-truncate"><span
 					style="margin-left:${15*vo.indent}px"></span>${vo.indent > 0 ? '<i class="fa-regular fa-comment-dots"></i>' : ''}
 					<a class="text-link"
 					href="info?id=${vo.id}&curPage=${page.curPage}&search=${page.search}&keyword=${page.keyword}">${vo.title}</a>

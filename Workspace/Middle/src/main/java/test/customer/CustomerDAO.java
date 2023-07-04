@@ -1,5 +1,6 @@
 package test.customer;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -36,7 +37,10 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public CustomerVO customer_info(int id, String name) {
-		return sql.selectOne("test.info", id);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("name", name);
+		return sql.selectOne("test.info", map);
 	}
 
 	@Override
