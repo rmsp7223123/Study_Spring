@@ -2,7 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="test">
 
-	<select id="dual" resultType="Integer">
+	<select id="search" resultType="integer">
 		select 1 from dual
 	</select>
+
+	<select id="info" resultType="test.customer.CustomerVO">
+		select * from customer where id =
+		#{id} and name like '%'||#{name}||'%'
+	</select>
+
+	<select id="list" resultType="test.customer.CustomerVO">
+		select * from customer
+		<if test="name != null">
+			where name like '%' || #{name} || '%'
+		</if>
+		order by name
+	</select>
+
+	<select id="find" resultType="test.notice.NoticeVO">
+		select notice.*, name
+		from notice
+		inner
+		join member on writer
+		=
+		userid where id = #{id}
+	</select>
+
+	<!-- <select id="info" resultType="test.member.MemberVO"> select * from 
+		member where userid = #{userid} </select> -->
+
 </mapper>

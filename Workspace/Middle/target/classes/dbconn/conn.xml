@@ -16,6 +16,13 @@
 		<property name="password" value="${hanul.password}" />
 	</bean>
 
+
+	<!-- <bean id="dbcp" class="org.apache.commons.dbcp2.BasicDataSource"> <property 
+		name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/> <property 
+		name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.0.87:1521:xe"/> <property 
+		name="username" value="hanul"/> <property name="password" value="0000"/> 
+		</bean> -->
+
 	<bean id="factoryHanul"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dbcpHanul" />
