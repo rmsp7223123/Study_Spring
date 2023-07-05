@@ -20,8 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public CustomerVO customer_info(int id, String name) {
-		return dao.customer_info(id, name);
+	public CustomerVO customer_info(int id) {
+		return dao.customer_info(id);
 	}
 
 	@Override
