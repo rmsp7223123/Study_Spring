@@ -14,4 +14,6 @@ public interface BoardService {
 	int board_read(int id);// 조회수 증가 처리
 
 	int board_delete(int id);// 방명록 글 삭제
+
+	FileVO board_file_info(int id);// 선택한 파일 정보 조회
 }

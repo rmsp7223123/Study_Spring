@@ -54,7 +54,9 @@
 	<div class="btn-toolbar gap-2 my-3 justify-content-center">
 		<a class="btn btn-primary" href="list?${params}">공지글목록</a>
 		<!-- 관리자로 로그인 한 경우만 수정/삭제 가능 -->
-		<c:if test="${loginInfo.admin eq 'Y'}">
+		<%--<c:if test="${loginInfo.admin eq 'Y'}"> --%>
+		<!-- 로그인한 사용자가 작성한 글만 수정/삭제 가능 -->
+		<c:if test="${loginInfo.userid eq vo.writer}">
 			<a class="btn btn-primary" href="modify?id=${vo.id}&${params}">${vo.indent eq 0 ? "공지글" : "답글"}수정</a>
 			<a class="btn btn-primary"
 				href="javascript:if(confirm('이 공지글을 삭제하시겠습니까?') ){location ='delete?id=${vo.id}&${params}'}">${vo.indent eq 0 ? "공지글" : "답글"}삭제</a>
