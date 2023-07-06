@@ -31,8 +31,8 @@ public class HomeController {
 	SqlSession sql;
 
 	@RequestMapping(value = "/list.cu", produces = "text/html; charset=utf-8")
-	public String home() {
-		System.out.println("확인용");
+	public String home(String param, String param1) {
+		System.out.println("확인용" + param + param1);
 		List<CustomerVO> list = sql.selectList("test.list");
 		Gson gson = new Gson();
 		return gson.toJson(list);
