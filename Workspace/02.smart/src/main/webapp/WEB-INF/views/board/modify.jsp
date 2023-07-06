@@ -49,7 +49,14 @@
 				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="writer" value="${loginInfo.userid}" />
+		<input type="hidden" name="writer" value="${loginInfo.userid}" /> <input
+			type="hidden" name="curPage" value="${page.curPage}" /> <input
+			type="hidden" name="search" value="${page.search}" /> <input
+			type="hidden" name="keyword" value="${page.keyword}" /> <input
+			type="hidden" name="viewType" value="${page.viewType}" /> <input
+			type="hidden" name="pageList" value="${page.pageList}" /> <input
+			type="hidden" name="id" value="${vo.id}" /> <input type="hidden"
+			name="removed" />
 	</form>
 
 	<div class="btn-toolbar gap-2 my-3 justify-content-center">
@@ -60,7 +67,7 @@
 	<script>
 		var fileList = new FileList();
 		<c:forEach items="${vo.fileList}" var="f">
-		fileList.setFile(urlToFile("${f.filepath}", "${f.filename}"));
+		fileList.setFile(urlToFile("${f.filepath}", "${f.filename}"), ${f.id});
 		</c:forEach>
 		console.log(fileList)
 
@@ -97,8 +104,13 @@
 		$('#btn-save').click(function() {
 			if (emptyCheck()) {
 				multipleFileUpload();
+				$('[name=removed]').val(fileList.info.removeId);
 				$('form').submit();
 			}
+		})
+		
+		$("#btn-cancel").click(function(){
+			$('form').attr('action','info').submit();
 		})
 	</script>
 
