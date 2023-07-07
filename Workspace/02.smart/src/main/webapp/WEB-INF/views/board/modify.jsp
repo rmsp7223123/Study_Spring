@@ -104,7 +104,7 @@
 		$('#btn-save').click(function() {
 			if (emptyCheck()) {
 				multipleFileUpload();
-				$('[name=removed]').val(fileList.info.removeId);
+				$('[name=removed]').val(fileList.info.removeid);
 				$('form').submit();
 			}
 		})

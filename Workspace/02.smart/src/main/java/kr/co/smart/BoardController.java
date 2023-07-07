@@ -51,7 +51,15 @@ public class BoardController {
 		if (service.board_update(vo) > 0) {
 			// 삭제 대상 파일이 있는 경우는 삭제처리 : DB+물리적 파일
 			if (!removed.isEmpty()) {
-
+				// DB에서 삭제하기 전에 삭제 할 파일 정보 조회해두기
+				List<FileVO> files = service.board_file_removed(removed);
+				// DB 삭제
+				for (FileVO f : files) {
+					if (service.board_file_delete(f.getId()) > 0) {
+						// 물리적 파일 삭제
+						common.deletedFile(f.getFilepath(), req);
+					}
+				}
 			}
 		}
 		model.addAttribute("url", "board/info");

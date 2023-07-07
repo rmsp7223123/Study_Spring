@@ -54,6 +54,18 @@
 			class="btn btn-primary" id="btn-modify">방명록수정</a> <a
 			class="btn btn-primary" id="btn-delete">방명록삭제</a>
 	</div>
+	<!--댓글입력부분 -->
+	<div>
+		<div class="row justify-content-center" id="comment-register">
+			<div class="col-md-10 content">
+				<!--로그인 여부에 따라 입력하도록 안내 -->
+				<div class="comment">
+					<div class="form-control text-center py-3">${empty loginInfo ? "댓글을 입력하려면 여기를 클릭 후 로그인 하세요" : ""}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<form method="post">
 		<input type="hidden" name="file" /> <input type="hidden"
 			name="curPage" value="${page.curPage}" /> <input type="hidden"
@@ -97,6 +109,14 @@
 		
 		$('#modal-alert .btn-danger').click(function(){
 			$('form').attr('action','delete').submit();
+		})
+		
+		$('#comment-register .comment').click(function(){
+			if(${empty loginInfo}){ // 로그인 정보가 없을 때 로그인을 할 것 인지 확인창
+				if(confirm('로그인 하시겠습니까?')) {
+					$('form').attr('action', "<c:url value='/member/login'/>").submit();
+				}
+			}
 		})
 	</script>
 
