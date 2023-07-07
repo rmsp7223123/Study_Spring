@@ -94,6 +94,9 @@ textarea.form-control {
 	height: 400px;
 	resize: none;
 }
+textarea.form-control {
+	height : 90px
+}
 
 #modal-image .modal-body img {
 	width: 100%;

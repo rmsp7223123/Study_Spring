@@ -58,10 +58,19 @@
 	<div>
 		<div class="row justify-content-center" id="comment-register">
 			<div class="col-md-10 content">
+				<div
+					class="title d-flex align-items-center justify-content-between mb-2 invisible">
+					<span>댓글작성 [ <span class="writing">0</span> / 200 ]
+					</span><a class="btn btn-outline-primary btn-sm btn-register invisible">댓글등록</a>
+				</div>
+
 				<!--로그인 여부에 따라 입력하도록 안내 -->
 				<div class="comment">
-					<div class="form-control text-center py-3">${empty loginInfo ? "댓글을 입력하려면 여기를 클릭 후 로그인 하세요" : ""}</div>
+					<div
+						class="form-control text-center py-3 d-flex justify-content-center align-items-center"
+						style="height: 90px">${empty loginInfo ? "댓글을 입력하려면 여기를 클릭 후 로그인 하세요" : "댓글을 입력하세요"}</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -81,6 +90,46 @@
 
 
 	<script>
+		// 댓글 등록 부분 초기화
+		function initRegisterContent() {
+			$('#comment-register .writing').text(0);
+			// $('.btn-register').addClass('invisible'); 버튼만 안보이게
+			
+			// 화면초기화 상태로 
+			$("#comment-register .title").addClass('invisible');
+			$('#comment-register .comment textarea').remove();
+			$('#comment-register .comment').append(`<div
+					class="form-control text-center py-3 d-flex justify-content-center align-items-center"
+					style="height: 90px">${empty loginInfo ? "댓글을 입력하려면 여기를 클릭 후 로그인 하세요" : "댓글을 입력하세요"}</div>`);
+			
+			
+		}
+	
+		// 댓글 입력 textarea에서 커서를 다른곳으로 이동하면
+		$(document).on('focusout', '#comment-register textarea', function(){
+			// 입력이 되어 있지 않는 경우 초기화 하기
+			$(this).val( $(this).val().trim(""));
+			if($(this).val() == "") {
+				initRegisterContent()
+			}
+		}).on('keyup', '#comment-register textarea', function(){
+			var comment = $(this).val();
+			if(comment.length > 200) {
+				alert("최대 200글자 까지만 입력 가능합니다.");
+				comment = comment.substr(0,200);
+			}
+			$(this).val(comment);
+			$(this).closest('.content').find('.writing').text( comment.length );
+			
+			// 글자를 입력 했을 때 등록버튼이 보이게
+			if(comment.length > 0) {
+				$('.btn-register').removeClass('invisible');	
+			} else {
+				$('.btn-register').addClass('invisible');
+			}
+			
+		})
+	
 		//폰트어썸으로 만들어진 버튼의 경우 동적으로 다시 만들어지기 때문에 
 		//이벤트는 태그자체에 직접 등록 했을 때 발생되지 않음 => 문서에 등록
 		$(document).on('click', '.file-download', function() {
@@ -116,6 +165,15 @@
 				if(confirm('로그인 하시겠습니까?')) {
 					$('form').attr('action', "<c:url value='/member/login'/>").submit();
 				}
+			} else {
+				// form-control이 지정된 태그가 div이면 입력이 안되니 입력 태그를 만들어서 교체
+				if( $(this).children(".form-control").is("div") ){
+					$(this).children('div.form-control').remove();
+					$(this).append(`<textarea class="form-control w-100"></textarea>`)
+					$(this).children("textarea").focus();
+					$('.content .title').removeClass("invisible");
+				}
+				
 			}
 		})
 	</script>
