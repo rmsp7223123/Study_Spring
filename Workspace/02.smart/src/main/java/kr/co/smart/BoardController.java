@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import smart.board.BoardCommentVO;
 import smart.board.BoardDAO;
 import smart.board.BoardVO;
 import smart.board.FileVO;
@@ -39,6 +40,12 @@ public class BoardController {
 	@RequestMapping("new")
 	public String board() {
 		return "board/new";
+	}
+
+	// 댓글 등록 처리
+	@RequestMapping("/comment/register")
+	public void comment_register(BoardCommentVO vo) {
+
 	}
 
 	// 선택한 방명록 정보 수정처리 요청

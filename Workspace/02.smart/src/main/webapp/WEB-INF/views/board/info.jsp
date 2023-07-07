@@ -90,6 +90,21 @@
 
 
 	<script>
+		// 댓글 등록 처리
+		$('btn-register').click(function(){
+			// 입력한 글이 있을때만 처리
+			var _textarea = $('#comment-register textarea');
+			if(_textarea.val().length == 0) {
+				return;
+			}
+			$.ajax({
+				url : '<c:url value="/board/comment/register"/>',
+				data : {board_id:${vo.id}, content : _textarea.val(), writer : '${loginInfo.userid}'},
+			}).done(function(res){
+				console.log(res)
+			});
+		})
+	
 		// 댓글 등록 부분 초기화
 		function initRegisterContent() {
 			$('#comment-register .writing').text(0);
