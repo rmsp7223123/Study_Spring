@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,11 +44,23 @@ public class BoardController {
 		return "board/new";
 	}
 
+	// 댓글 정보 수정 처리
+	@RequestMapping(value = "/comment/update", produces = "text/html; charset=utf-8")
+	@ResponseBody
+	// json으로 보내진 정보를 담기 위한 annotation : @RequestBody
+	public String comment_update(@RequestBody BoardCommentVO vo) {
+		// 화면에서 변경 입력한 정보를 DB에 저장 처리
+		return service.board_comment_update(vo) == 1 ? "성공" : "실패";
+	}
+
+	// 댓글 목록 조회
 	@RequestMapping("/comment/list/{board_id}")
 	public String comment_list(@PathVariable int board_id, Model model) {
 		// 해당 방명록 글에 대한 댓글목록을 DB에서 조회, 댓글 목록 화면에 출력
 		model.addAttribute("list", service.board_comment_list(board_id));
-		return "board/comment_list";
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
+		return "board/comment/comment_list";
 	}
 
 	// 댓글 등록 처리

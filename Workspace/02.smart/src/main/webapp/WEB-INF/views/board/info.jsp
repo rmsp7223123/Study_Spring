@@ -76,9 +76,7 @@
 	</div>
 
 	<!-- 댓글 목록 출력 부분 -->
-	<div class="row justify-content-center mt-4" id="comment-list">
-		
-	</div>
+	<div class="row justify-content-center mt-4" id="comment-list"></div>
 
 	<form method="post">
 		<input type="hidden" name="file" /> <input type="hidden"
@@ -103,6 +101,7 @@
 			url : '<c:url value="/board/comment/list/${vo.id}"/>'
 		}).done(function(res){
 			console.log(res)
+			$('#comment-list').html(res)
 		})
 	}
 	
@@ -152,7 +151,7 @@
 			if($(this).val() == "") {
 				initRegisterContent()
 			}
-		}).on('keyup', '#comment-register textarea', function(){
+		}).on('keyup', '.comment textarea', function(){
 			var comment = $(this).val();
 			if(comment.length > 200) {
 				alert("최대 200글자 까지만 입력 가능합니다.");

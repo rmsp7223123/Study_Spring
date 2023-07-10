@@ -1,6 +1,9 @@
 --공지사항 관리
 
+
 select * from board_file;
+
+select * from board order by 1 desc;
 
 create table notice(
     id      NUMBER constraint notice_id_pk primary key,
