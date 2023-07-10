@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,10 +43,19 @@ public class BoardController {
 		return "board/new";
 	}
 
+	@RequestMapping("/comment/list/{board_id}")
+	public String comment_list(@PathVariable int board_id, Model model) {
+		// 해당 방명록 글에 대한 댓글목록을 DB에서 조회, 댓글 목록 화면에 출력
+		model.addAttribute("list", service.board_comment_list(board_id));
+		return "board/comment_list";
+	}
+
 	// 댓글 등록 처리
 	@RequestMapping("/comment/register")
-	public void comment_register(BoardCommentVO vo) {
-
+	@ResponseBody
+	public boolean comment_register(BoardCommentVO vo) {
+		// 화면에서 입력한 댓글 정보를 DB에 신규 저장
+		return service.board_comment_register(vo) == 1 ? true : false;
 	}
 
 	// 선택한 방명록 정보 수정처리 요청

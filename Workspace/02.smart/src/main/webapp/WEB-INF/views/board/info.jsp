@@ -75,6 +75,11 @@
 		</div>
 	</div>
 
+	<!-- 댓글 목록 출력 부분 -->
+	<div class="row justify-content-center mt-4" id="comment-list">
+		
+	</div>
+
 	<form method="post">
 		<input type="hidden" name="file" /> <input type="hidden"
 			name="curPage" value="${page.curPage}" /> <input type="hidden"
@@ -90,8 +95,20 @@
 
 
 	<script>
+	commentList();
+	
+	// 댓글 목록을 조회 후 출력
+	function commentList(){
+		$.ajax({
+			url : '<c:url value="/board/comment/list/${vo.id}"/>'
+		}).done(function(res){
+			console.log(res)
+		})
+	}
+	
+	
 		// 댓글 등록 처리
-		$('btn-register').click(function(){
+		$('.btn-register').click(function(){
 			// 입력한 글이 있을때만 처리
 			var _textarea = $('#comment-register textarea');
 			if(_textarea.val().length == 0) {
@@ -102,6 +119,14 @@
 				data : {board_id:${vo.id}, content : _textarea.val(), writer : '${loginInfo.userid}'},
 			}).done(function(res){
 				console.log(res)
+				if(res) {
+					alert("댓글이 등록 되었습니다.")
+					initRegisterContent();
+					commentList();
+				} else {
+					alert("댓글 등록에 실패 하였습니다.")
+				}
+				
 			});
 		})
 	

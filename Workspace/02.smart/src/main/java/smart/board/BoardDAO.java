@@ -77,4 +77,26 @@ public class BoardDAO implements BoardService {
 		return sql.delete("board.fileDelete", id);
 	}
 
+	@Override
+	public int board_comment_register(BoardCommentVO vo) {
+		return sql.insert("board.commentRegister", vo);
+	}
+
+	@Override
+	public int board_comment_update(BoardCommentVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int board_comment_delete(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<BoardCommentVO> board_comment_list(int board_id) {
+		return sql.selectList("board.commentList", board_id);
+	}
+
 }

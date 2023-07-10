@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 
+	<select id="commentList" resultType="smart.board.BoardCommentVO">
+		select c.*, m.profile,
+		m.name from board_comment
+		c inner join member m on m.userid =c.writer
+		where board_id = #{board_id} order by c.id desc
+	</select>
+
+	<!-- 방명록 댓글 신규 저장 처리 -->
+	<insert id="commentRegister">
+		insert into board_comment (content, writer, board_id)
+		values (#{content}, #{writer}, #{board_id})
+	</insert>
+
 	<!-- 첨부파일 삭제 -->
 	<delete id="fileDelete">
 		delete from board_file where id = #{id}
