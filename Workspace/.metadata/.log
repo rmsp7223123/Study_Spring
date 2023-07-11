@@ -6343,3 +6343,9 @@ Binding(CTRL+SHIFT+/,
 
 !ENTRY net.certiv.tools.indentguide 1 0 2023-07-11 17:52:38.729
 !MESSAGE Starter:130 	Indent Guide: painter installed
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-07-11 17:53:22.274
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-07-11 17:53:22.275
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
