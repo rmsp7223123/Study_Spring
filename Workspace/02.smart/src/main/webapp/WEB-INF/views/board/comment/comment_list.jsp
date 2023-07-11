@@ -32,7 +32,8 @@
 				<span class="text-secondary me-2">${profile}</span> <span>${vo.name}
 					[${vo.writedate}]</span>
 			</div>
-			<c:if test="${loginInfo.userid eq vo.writer}">
+			<c:if
+				test="${loginInfo.userid eq vo.writer or loginInfo.admin eq 'Y'}">
 				<div>
 					<span class="title me-4 d-none">댓글수정[ <span class="writing">0</span>
 						/ 200 ]
@@ -67,7 +68,9 @@
 				})
 			}).done(function(res) {
 				console.log(res)
-				alert(res);
+				alert(res.message)
+				_content.find('.hidden').text(res.content);
+				stayStatus(_content);
 			})
 		}
 	})
@@ -90,10 +93,34 @@
 		_content.find('.hidden').html(`\${comment}`); // 원래 댓글 내용 그대로 담기
 	}
 
-	// 취소버튼 클릭시
+	// 삭제 or 취소버튼 클릭시
 	$('.btn-delete-cancel').click(function() {
 		var _content = $(this).closest('.content');
-		stayStatus(_content);
+		if ($(this).text() == '취소') {
+			stayStatus(_content);
+		} else {
+			if (confirm('댓글을 삭제 하시겠습니까?')) {
+				// 댓글 삭제 후 댓글 목록을 다시 조회 해 오는 경우
+				// 	$.ajax({
+				// 	url : '<c:url value="/board/comment/delete"/>',
+				// 	data : {
+				// 	id : _content.data('id')
+				// 	}
+				// 	}).done(function() {
+				// 	commentList();
+				// 	})
+				$.ajax({
+					url : '<c:url value="/board/comment/delete"/>',
+					data : {
+						id : _content.data('id')
+					}
+				}).done(function(res) {
+					if (res) {
+						_content.remove();
+					}
+				})
+			}
+		}
 	})
 
 	//가만히 있는 상태

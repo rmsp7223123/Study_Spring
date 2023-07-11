@@ -3691,7 +3691,7 @@ textarea.form-control-lg {
 }
 .nav-pills .nav-link {
   background: none;
-  border: 0;
+  border: 1px solid var(--bs-blue);
   border-radius: var(--bs-nav-pills-border-radius);
 }
 .nav-pills .nav-link:disabled {

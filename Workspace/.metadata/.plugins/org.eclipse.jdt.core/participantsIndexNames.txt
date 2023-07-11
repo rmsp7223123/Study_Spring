@@ -7,6 +7,8 @@ D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\
 \test\src\main\java
 D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\247015548.index
 \Middle\src\main\java
+D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2663873383.index
+\02.smart\src\main\java
 D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1517389302.index
 \99.test\src\main\java
 D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2773099154.index

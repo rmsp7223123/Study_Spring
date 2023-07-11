@@ -1,5 +1,6 @@
 package kr.co.smart;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,13 +45,32 @@ public class BoardController {
 		return "board/new";
 	}
 
-	// 댓글 정보 수정 처리
-	@RequestMapping(value = "/comment/update", produces = "text/html; charset=utf-8")
+	// 댓글 정보 삭제 처리
+	@RequestMapping("/comment/delete")
 	@ResponseBody
+	public boolean comment_delete(int id) {
+		// 해당 댓글 정보를 db에서 삭제
+		return service.board_comment_delete(id) == 1 ? true : false;
+	}
+
+	// 댓글 정보 수정 처리
+//	@RequestMapping(value = "/comment/update", produces = "text/html; charset=utf-8")
+//	@ResponseBody
 	// json으로 보내진 정보를 담기 위한 annotation : @RequestBody
-	public String comment_update(@RequestBody BoardCommentVO vo) {
+	@ResponseBody
+	@RequestMapping(value = "/comment/update")
+	public HashMap<String, Object> comment_update(@RequestBody BoardCommentVO vo) {
 		// 화면에서 변경 입력한 정보를 DB에 저장 처리
-		return service.board_comment_update(vo) == 1 ? "성공" : "실패";
+//		return service.board_comment_update(vo) == 1 ? "성공" : "실패";
+		// 응답 화면에서 댓글 목록 전체를 다시 조회 해 오지 않고 변경 저장 된 댓글만 반영되게 처리
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		if (service.board_comment_update(vo) == 1) {
+			map.put("message", "성공");
+			map.put("content", vo.getContent());
+		} else {
+			map.put("message", "실패");
+		}
+		return map;
 	}
 
 	// 댓글 목록 조회
