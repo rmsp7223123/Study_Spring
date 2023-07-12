@@ -19,7 +19,7 @@
 	</insert>
 	
 	<update id="update">
-		update customer set name = #{name}, email= #{email}, phone = {phone} where id = #{id}
+		update customer set name = #{name}, email= #{email}, phone = #{phone} where id = #{id}
 	</update>
 
 </mapper>
