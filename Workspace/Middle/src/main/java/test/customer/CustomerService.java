@@ -12,5 +12,8 @@ public interface CustomerService {
 	CustomerVO customer_info(int id); // 고객 상세정보 조회
 	void customer_update(CustomerVO vo); // 고객정보 수정 저장
 	void customer_delete(int id); // 고객정보 삭제
+	void delete(int id);
+	void insert(CustomerVO vo);
+	void update(CustomerVO vo);
 }
 

@@ -54,4 +54,20 @@ public class CustomerDAO implements CustomerService {
 		return sql.selectList("customer.list", name);
 	}
 
+	@Override
+	public void delete(int id) {
+		int result  =  sql.delete("test.delete",id);
+		System.out.println(result);
+	}
+
+	@Override
+	public void insert(CustomerVO vo) {
+		sql.insert("test.insert",vo);
+	}
+
+	@Override
+	public void update(CustomerVO vo) {
+		sql.update("test.update",vo);
+	}
+
 }

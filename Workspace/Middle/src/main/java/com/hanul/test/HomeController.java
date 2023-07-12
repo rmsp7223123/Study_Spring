@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-
 import test.customer.CustomerVO;
 
 @RestController
@@ -30,6 +29,9 @@ public class HomeController {
 	@Autowired
 	SqlSession sql;
 
+	@Autowired
+	private test.customer.CustomerServiceImpl service;
+	
 	@RequestMapping(value = "/list.cu", produces = "text/html; charset=utf-8")
 	public String home(String param, String param1) {
 		System.out.println("확인용" + param + param1);
@@ -44,6 +46,21 @@ public class HomeController {
 		vo.setEmail("이메일확인용99");
 		vo.setName("이름확인용99");
 		return new Gson().toJson(vo);
+	}
+	
+	@RequestMapping("/delete.cu")
+	public void delete(int id) {
+		service.delete(id);
+	}
+	
+	@RequestMapping("/insert.cu")
+	public void insert(CustomerVO vo) {
+		service.insert(vo);
+	}
+	
+	@RequestMapping("/update.cu")
+	public void update(CustomerVO vo) {
+		service.update(vo);
 	}
 
 }

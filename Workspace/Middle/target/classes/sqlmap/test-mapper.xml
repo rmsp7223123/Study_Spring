@@ -9,5 +9,17 @@
 		</if>
 		order by name
 	</select>
+	
+	<delete id="delete">
+		delete from customer where id = #{id}
+	</delete>
+	
+	<insert id="insert">
+		insert into customer (name, email, phone) values (#{name}, #{email}, #{phone})
+	</insert>
+	
+	<update id="update">
+		update customer set name = #{name}, email= #{email}, phone = {phone} where id = #{id}
+	</update>
 
 </mapper>

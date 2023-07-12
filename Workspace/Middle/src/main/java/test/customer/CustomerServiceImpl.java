@@ -39,4 +39,19 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.customer_list(name);
 	}
 
+	@Override
+	public void delete(int id) {
+		dao.delete(id);
+	}
+
+	@Override
+	public void insert(CustomerVO vo) {
+		dao.insert(vo);
+	}
+
+	@Override
+	public void update(CustomerVO vo) {
+		dao.update(vo);
+	}
+
 }
