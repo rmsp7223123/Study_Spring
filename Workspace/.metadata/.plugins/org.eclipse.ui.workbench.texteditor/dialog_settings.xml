@@ -8,28 +8,28 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="#data-list"/>
+		<item key="selection" value="animal"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="animal"/>
+			<item value="trigger"/>
+			<item value="xy"/>
+			<item value="show"/>
+			<item value="1000"/>
+			<item value="spinner"/>
+			<item value="include"/>
+			<item value="docu"/>
+			<item value="phar"/>
 			<item value="#data-list"/>
 			<item value="makePage"/>
 			<item value="console"/>
 			<item value="totalCount"/>
 			<item value="idx"/>
 			<item value="value"/>
-			<item value="values"/>
-			<item value="requestAPI"/>
-			<item value="nav-pills"/>
-			<item value="keyup"/>
-			<item value="profile"/>
-			<item value="댓글입력"/>
-			<item value="btn-reg"/>
-			<item value="match"/>
-			<item value="/login"/>
 		</list>
 		<list key="replacehistory">
 		</list>
