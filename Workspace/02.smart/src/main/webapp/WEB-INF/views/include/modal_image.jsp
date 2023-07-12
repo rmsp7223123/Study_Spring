@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-image" style="-bs-modalwidth: 700px">
+<div class="modal fade" id="modal-image" style="--bs-modal-width: 700px">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-body"></div>

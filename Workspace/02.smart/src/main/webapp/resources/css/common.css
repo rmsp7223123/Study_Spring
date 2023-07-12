@@ -46,6 +46,11 @@ a.text-link:hover {
 	text-decoration: underline;
 }
 
+a.text-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
 .profile {
 	width: 38px;
 	height: 38px;
@@ -94,8 +99,9 @@ textarea.form-control {
 	height: 400px;
 	resize: none;
 }
+
 textarea.form-control {
-	height : 90px
+	height: 90px
 }
 
 #modal-image .modal-body img {

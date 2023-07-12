@@ -13,15 +13,36 @@
 		<li class="nav-item"><a class="nav-link">약국 조회</a></li>
 		<li class="nav-item"><a class="nav-link">유기 동물 조회</a></li>
 	</ul>
+
+	<div class="row mb-2">
+		<div class="col-auto">
+			<select id="pageList" class="form-select">
+				<c:forEach var="i" begin="1" end="5">
+					<option value="${10*i}">${10*i}개씩</option>
+				</c:forEach>
+			</select>
+		</div>
+	</div>
 	<div id="data-list"></div>
 
 	<jsp:include page="/WEB-INF/views/include/loading.jsp" />
+	<jsp:include page="/WEB-INF/views/include/modal_image.jsp" />
 
 
+	<script type="text/javascript"
+		src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3n13cy7hca"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dc9f7c76ae759acfe86dddc50c380e16"></script>
 	<script>
+	// 한 페이지에 보여질 목록 수 변경
+	$('#pageList').change(function(){
+		page.pageList = $(this).val();
+		pharmacy_list(1);
+	})
+	
 		$(function() {
 			// 버튼을 강제 클릭
-			$('ul.nav-pills li').eq(0).trigger('click');
+			$('ul.nav-pills li').eq(1).trigger('click');
 		})
 
 		// 		$('ul.nav-pills li').click(function() {
@@ -82,7 +103,7 @@
 			table = '';
 			$.ajax({
 				url : "<c:url value='/data/pharmacy'/>",
-				data : {pageNo : pageNo},
+				data : {pageNo : pageNo, rows : page.pageList},
 				async : false,
 			}).done(function(res){
 				console.log(res)
@@ -91,7 +112,7 @@
 					table += 
 						`
 						<tr>
-							<td>\${this.yadmNm}</td>
+							<td><a class="map text-link" data-x="\${this.XPos}" data-y= "\${this.YPos}">\${this.yadmNm}</a></td>
 							<td>\${this.telno ? this.telno : '-'}</td>
 							<td class='text-start'>\${this.addr}</td>
 						</tr>
@@ -109,13 +130,98 @@
 
 		// 유기 동물 목록 조회
 		function animal_list(pageNo) {
-
+			$('#data-list').empty();
+			$('loading').show();
+			
+			$.ajax({
+				url : "<c:url value='/data/animal/list'/>",
+				data : {pageNo : pageNo, rows : page.pageList},
+				aysnc : false,
+			}).done(function(res){
+				console.log(res);
+			})
+			setTimeout(function(){$('.loading').hide()}, 1000);
 		}
 		
 		
 		$(document).on('click', '.pagination a' ,function(){
 			pharmacy_list($(this).data('page'));
 		})
+		.on('click', '.map', function(){ // 약국명 클릭 시 지도에 약국 위치 표시
+			if($(this).data('x')=='undefined' || $(this).data('y')=='undefined') {
+				alert('위경도 데이터가 존재하지 않습니다.')
+			} else {
+				showNaverMap($(this));
+	// 			showKakaoMap($(this));
+			}
+		})
+		
+		function showNaverMap(point) {
+			$('#modal-image .modal-body').empty();
+			
+			// 지도를 담을 영역 만들기
+			$('#modal-image').after("<div id='modal-map' style = 'width:668px; height : 700px'></div>");
+			
+			var xy = new naver.maps.LatLng(point.data('y'),point.data('x'));
+			var mapOptions = {
+				    center: xy,
+				    zoom: 16
+				};
+			var map = new naver.maps.Map('modal-map', mapOptions);
+			var name = point.text();
+			// 원하는 위치에 마커 올리기
+			
+			var marker = new naver.maps.Marker({
+    				position: xy,
+    				map: map
+				});
+			
+			var infowindow = new naver.maps.InfoWindow({
+			    content: `<div class='text-danger fw-bold p-2'>\${name}</div>`
+			});
+			
+			infowindow.open(map, marker);
+					
+			$('#modal-image .modal-body').html($("#modal-map"));
+			new bootstrap.Modal($('#modal-image')).show();
+		}
+		
+		// 카카오 지도로 약국 위치 표시
+		function showKakaoMap(point){
+			$('#modal-image .modal-body').empty();
+			// 지도를 담을 영역 만들기
+			$('#modal-image').after("<div id='modal-map' style = 'width:668px; height : 700px'></div>");
+			
+			var xy = new kakao.maps.LatLng(point.data('y'),point.data('x'));
+			var container = document.getElementById('modal-map'); //지도를 담을 영역의 DOM 레퍼런스
+			var options = { //지도를 생성할 때 필요한 기본 옵션
+				center: xy, //지도의 중심좌표.
+				level: 3 //지도의 레벨(확대, 축소 정도)
+			};
+			
+			var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+			    position: xy
+			});
+
+			// 마커가 지도 위에 표시되도록 설정합니다
+			marker.setMap(map);
+			
+			// 인포윈도우를 생성합니다
+			var name = point.text();
+			var infowindow = new kakao.maps.InfoWindow({
+			    position : xy, 
+			    content : `<div class='text-danger fw-bold p-2'>\${name}</div>` 
+			});
+			  
+			// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+			infowindow.open(map, marker); 
+			
+			$('#modal-image .modal-body').html( $('#modal-map'));
+			new bootstrap.Modal($('#modal-image')).show();
+		}
 		
 		
 		var page = {pageList : 10, blockPage : 10}; // 페이지 당 보여질 목록 수, 블럭 당 보여질 페이지 수

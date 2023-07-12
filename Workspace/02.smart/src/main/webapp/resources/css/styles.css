@@ -6005,6 +6005,11 @@ textarea.form-control-lg {
   vertical-align: var(--bs-spinner-vertical-align);
   border-radius: 50%;
   animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name);
+  
+  /* spinner를 브라우저 가운데 위치하도록 추가 */
+  position: fixed;
+  top: 50%;
+  left : 50%;
 }
 
 @keyframes spinner-border {
