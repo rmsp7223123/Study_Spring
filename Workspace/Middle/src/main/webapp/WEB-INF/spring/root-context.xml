@@ -11,6 +11,8 @@
 		base-package="test.customer"></context:component-scan>
 		<context:component-scan
 		base-package="test.andmembers"></context:component-scan>
+		<context:component-scan
+		base-package="test.hr"></context:component-scan>
 
 	<import resource="classpath:dbconn/conn.xml" />
 </beans>
