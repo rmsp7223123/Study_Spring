@@ -8,13 +8,18 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=".pagina"/>
+		<item key="selection" value="nav-tabs"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="nav-tabs"/>
+			<item value="requestAPI"/>
+			<item value="requestAPIR"/>
+			<item value="animal.sido"/>
+			<item value="animal.sodi"/>
 			<item value=".pagina"/>
 			<item value="페이지"/>
 			<item value="번호 클릭"/>
@@ -25,11 +30,6 @@
 			<item value="tb-list phar"/>
 			<item value="page"/>
 			<item value="img"/>
-			<item value="mb-3"/>
-			<item value="closest"/>
-			<item value="nav"/>
-			<item value="조회"/>
-			<item value=".pagination"/>
 		</list>
 		<list key="replacehistory">
 		</list>

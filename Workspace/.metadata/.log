@@ -11055,3 +11055,15 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-07-14 17:44:21.549
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-07-14 17:44:48.442
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.fvUyApzv
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-07-14 17:44:48.442
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.fvUyApzv
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-07-14 17:44:48.442
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-07-14 17:44:48.442
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.fvUyApzv => OK
