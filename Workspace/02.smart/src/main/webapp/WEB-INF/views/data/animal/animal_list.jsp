@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${empty list.items.item }">
+
+	<table class="tb-list empty">
+		<tr>
+			<th>해당 유기 동물이 없습니다</th>
+		</tr>
+	</table>
+</c:if>
+
+
 <c:forEach items="${list.items.item}" var="vo">
 	<table class="tb-list animal mb-3 mt-3">
 		<colgroup>

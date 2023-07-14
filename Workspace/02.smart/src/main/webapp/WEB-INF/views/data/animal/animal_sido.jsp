@@ -14,6 +14,7 @@
 		animal_list(1);
 	})
 	function animal_sigungu() {
+		$('#shelter').remove();
 		$('#sigungu').remove();
 		if ($('#sido').val() == '') {
 			return;

@@ -14,12 +14,12 @@
 		<li class="nav-item"><a class="nav-link">유기 동물 조회</a></li>
 	</ul>
 
-	<div class="row mb-3 d-flex justify-content-between"> <!-- 동물 조회시에만 사용 될 부분 -->
-		<div class="col-auto animal-top d-flex gap-2">
-			
-		</div>
-	
-		<div class="col-auto pharmacy-top"> <!-- 약국 조회시에만 사용 될 부분 -->
+	<div class="row mb-3 d-flex justify-content-between">
+		<!-- 동물 조회시에만 사용 될 부분 -->
+		<div class="col-auto animal-top d-flex gap-2"></div>
+
+		<div class="col-auto pharmacy-top">
+			<!-- 약국 조회시에만 사용 될 부분 -->
 			<div class="input-group">
 				<label class="col-form-label me-3">약국명</label> <input type="text"
 					id="name" class="form-control">
@@ -63,7 +63,7 @@
 		if($('table.pharmacy').length > 0) {
 			pharmacy_list(1);
 		} else{
-			pharmacy_list(1);
+			animal_list(1);
 		}
 	})
 	

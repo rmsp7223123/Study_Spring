@@ -76,7 +76,7 @@ public class DataController {
 //		model.addAttribute("list", common.requestAPIInfo(url.toString()));
 //		return "data/animal/animal_list";
 //	}
-	
+
 	// jsp에서 보낸 json 파라미터는 바로 데이터 객체에 담기지 않음 ==> @RequestBody로 처리
 	@RequestMapping("/animal/list")
 	public String animal_list(@RequestBody HashMap<String, Object> map, Model model) {
@@ -86,10 +86,14 @@ public class DataController {
 		url.append("&pageNo=").append(map.get("curPage"));
 		url.append("&numOfRows=").append(map.get("pageList"));
 		url.append("&upr_cd=").append(map.get("sido"));
+		url.append("&org_cd=").append(map.get("sigungu"));
+		url.append("&care_reg_no=").append(map.get("shelter"));
+		url.append("&upkind=").append(map.get("upkind"));
+		url.append("&kind=").append(map.get("kind"));
 		model.addAttribute("list", common.requestAPIInfo(url.toString()));
 		return "data/animal/animal_list";
 	}
-	
+
 	// 시도 정보 요청
 	@RequestMapping("/animal/sido")
 	public String animal_sido(Model model) {
@@ -97,19 +101,42 @@ public class DataController {
 		url.append("sido?serviceKey=").append(key);
 		url.append("&_type=json");
 		url.append("&numOfRows=30");
-		model.addAttribute("list",common.requestAPIInfo(url.toString()));
+		model.addAttribute("list", common.requestAPIInfo(url.toString()));
 		return "data/animal/animal_sido";
 	}
-	
-	//시군구 정보 요청
+
+	// 보호 조회 요청
+	@RequestMapping("/animal/shelter")
+	public String animal_shelter(Model model, String sido, String sigungu) {
+		StringBuffer url = new StringBuffer("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/");
+		url.append("shelter?serviceKey=").append(key);
+		url.append("&_type=json");
+		url.append("&upr_cd=").append(sido);
+		url.append("&org_cd=").append(sigungu);
+		model.addAttribute("list", common.requestAPIInfo(url.toString()));
+		return "data/animal/shelter";
+	}
+
+	// 시군구 정보 요청
 	@RequestMapping("/animal/sigungu")
 	public String animal_sigungu(Model model, String sido) {
 		StringBuffer url = new StringBuffer("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/");
 		url.append("sigungu?serviceKey=").append(key);
 		url.append("&_type=json");
 		url.append("&upr_cd=").append(sido);
-		model.addAttribute("list",common.requestAPIInfo(url.toString()));
+		model.addAttribute("list", common.requestAPIInfo(url.toString()));
 		return "data/animal/animal_sigungu";
 	}
-	
+
+	//
+	@RequestMapping("/animal/kind")
+	public String animal_kind(Model model, String upkind) {
+		StringBuffer url = new StringBuffer("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/");
+		url.append("kind?serviceKey=").append(key);
+		url.append("&_type=json");
+		url.append("&up_kind_cd=").append(upkind);
+		model.addAttribute("list", common.requestAPIInfo(url.toString()));
+		return "data/animal/kind";
+	}
+
 }
