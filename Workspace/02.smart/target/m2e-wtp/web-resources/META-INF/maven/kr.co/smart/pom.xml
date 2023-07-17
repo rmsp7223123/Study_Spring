@@ -16,9 +16,6 @@
 	</properties>
 
 	<dependencies>
-<<<<<<< HEAD
-		<!-- log4jdbc log4j2 -->
-=======
 		<!-- Object => json, StringJson = > Object API -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -72,16 +69,12 @@
 
 
 		<!-- 쿼리로그 출력용 라이브러리 -->
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
 			<version>1.16</version>
 		</dependency>
-<<<<<<< HEAD
-		<!-- DB연결을 위한 jdbc 라이브러리 -->
-=======
 
 
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
@@ -91,7 +84,6 @@
 			<version>21.5.0.0</version>
 		</dependency>
 
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>

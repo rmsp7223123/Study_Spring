@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
-<log4j:configuration
-	xmlns:log4j="http://jakarta.apache.org/log4j/">
-=======
 <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" 
 "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 
 	<!-- Appenders -->
-	<appender name="console"
-		class="org.apache.log4j.ConsoleAppender">
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
-
+	
 	<!-- Application Loggers -->
 	<logger name="kr.co.smart">
 		<level value="info" />
 	</logger>
-
+	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
 	</logger>
-
+	
 	<logger name="org.springframework.beans">
 		<level value="info" />
 	</logger>
-
+	
 	<logger name="org.springframework.context">
 		<level value="info" />
 	</logger>
@@ -39,17 +32,6 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
-<<<<<<< HEAD
-
-	<logger name="jdbc.sqlonly">
-		<level value="info" />
-	</logger>
-
-<!-- 	<logger name="jdbc.resultsettable">
-		<level value="info" />
-	</logger>
- -->
-=======
 	
 	<logger name="jdbc.sqlonly">
 		<level value="info" />
@@ -60,11 +42,10 @@
 		<level value="info" />
 	</logger>
 -->	
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
 	</root>
-
+	
 </log4j:configuration>

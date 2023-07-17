@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-<<<<<<< HEAD
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="tomcat" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
-    <list key="modules" value0="01.web::org.eclipse.jst.jee.server:01.web::jst.web::2.5" value1="02.smart::org.eclipse.jst.jee.server:02.smart::jst.web::3.0" value2="99.test::org.eclipse.jst.jee.server:99.test::jst.web::4.0"/>
-=======
   <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0 (2)" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="90" stop-timeout="15" testEnvironment="true" timestamp="29">
     <list key="modules" value0="02.smart::org.eclipse.jst.jee.server:02.smart::jst.web::3.0"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
   </server>
 </servers>

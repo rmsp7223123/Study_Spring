@@ -5,15 +5,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<<<<<<< HEAD
-	<bean id="dbcp" class="org.apache.commons.dbcp2.BasicDataSource">
-		<property name="driverClassName"
-			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-		<property name="url"
-			value="jdbc:log4jdbc:oracle:thin:@192.168.0.87:1521:xe" />
-		<property name="username" value="hanul" />
-		<property name="password" value="0000" />
-=======
 
 	<context:property-placeholder
 		location="classpath:dbconn/db.properties" />
@@ -23,7 +14,6 @@
 		<property name="url" value="${oracle.url}" />
 		<property name="username" value="${hanul.username}" />
 		<property name="password" value="${hanul.password}" />
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 	</bean>
 
 

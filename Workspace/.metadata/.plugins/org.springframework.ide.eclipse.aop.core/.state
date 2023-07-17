@@ -2,9 +2,6 @@
 <aop-reference-model>
 <aop-project name="02.smart"/>
 <aop-project name="01.web"/>
-<<<<<<< HEAD
-=======
 <aop-project name="Middle"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 <aop-project name="99.test"/>
 </aop-reference-model>

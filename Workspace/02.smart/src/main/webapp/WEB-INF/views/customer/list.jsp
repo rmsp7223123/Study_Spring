@@ -1,12 +1,6 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-=======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,52 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-	<h3 class="my-4">고객목록</h3>
-	<table class="tb-list">
-		<colgroup>
-			<col>
-			<col width="300px">
-			<col width="400px">
-		</colgroup>
-		<tr style="text-align: center">
-			<th>고객명</th>
-			<th>전화번호</th>
-			<th>이메일</th>
-		</tr>
-		<%-- 		<%
-		for (int i = 1; i < 10; i++) {
-			System.out.println(i);
-		}
-
-		String[] names = { "홍길동", "박문수", "심청" };
-		for (int idx = 0; idx < names.length; idx++) {
-			System.out.println(names[idx]);
-		}
-
-		for (String name : names) {
-			System.out.println(name);
-		}
-		%> --%>
-
-
-		<c:forEach items="${list }" var="vo">
-			<tr>
-				<td>${vo.name }</td>
-				<td>${vo.phone }</td>
-				<td>${vo.email }</td>
-			</tr>
-		</c:forEach>
-		<c:if test="${empty list}">
-			<tr>
-				<td colspan="3">고객목록이 없습니다.</td>
-			</tr>
-		</c:if>
-
-	</table>
-=======
 <h3 class="my-4">고객목록</h3>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 
 <div class="row my-3 justify-content-between">
 	<div class="col-auto">

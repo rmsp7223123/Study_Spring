@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="customer">
-<<<<<<< HEAD
-	<select id="list" resultType="customer.CustomerVO">
-		select * from customer order by name
-	</select>
-=======
 
 	<!-- 고객정보 삭제 -->
 	<delete id="delete">
@@ -41,5 +36,4 @@
 		order by name
 	</select>
 
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 </mapper>

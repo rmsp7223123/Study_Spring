@@ -7,15 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-<<<<<<< HEAD:Workspace/02.smart/src/main/java/customer/CustomerServiceImpl.java
-
-	@Autowired
-	private CustomerDAO dao;
-
-=======
 	@Autowired private CustomerDAO dao;
 	
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960:Workspace/02.smart/src/main/java/smart/customer/CustomerServiceImpl.java
 	@Override
 	public void customer_insert(CustomerVO vo) {
 		dao.customer_insert(vo);
@@ -23,10 +16,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public List<CustomerVO> customer_list() {
-<<<<<<< HEAD:Workspace/02.smart/src/main/java/customer/CustomerServiceImpl.java
-		// TODO Auto-generated method stub
-=======
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960:Workspace/02.smart/src/main/java/smart/customer/CustomerServiceImpl.java
 		return dao.customer_list();
 	}
 

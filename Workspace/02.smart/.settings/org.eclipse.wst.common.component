@@ -14,10 +14,7 @@
                 		
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
-=======
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
                 		
         
         <property name="java-output-path" value="target/classes"/>

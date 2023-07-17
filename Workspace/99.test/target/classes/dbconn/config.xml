@@ -11,11 +11,7 @@
 		<property name="username" value="hanul" />
 		<property name="password" value="0000" />
 	</bean>
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 
 	<bean id="factory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">

@@ -26,11 +26,6 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="smart.board.FileVO"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-<<<<<<< HEAD
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-=======
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
@@ -58,7 +53,6 @@
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.json.JSONObject"/>
     <fullyQualifiedTypeName name="java.net.URLEncoder"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
@@ -66,35 +60,4 @@
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-<<<<<<< HEAD
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.view.tiles3.TilesConfigurer"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="customer.CustomerService"/>
-    <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
-    <fullyQualifiedTypeName name="customer.CustomerDAO"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="customer.CustomerServiceImpl"/>
-    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.BasicDataSource"/>
-    <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionFactoryBean"/>
-    <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
-    <fullyQualifiedTypeName name="org.springframework.transaction.jta.SpringJtaSynchronizationAdapter"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringExtension"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="org.junit.Test"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="customer.CustomerVO"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-=======
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 </qualifiedTypeNameHistroy>

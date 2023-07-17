@@ -6,11 +6,6 @@
 		<item key="uncategorizedFilter" value="true"/>
 	</section>
 	<section name="NewWizardAction">
-<<<<<<< HEAD
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.server.ui.new.server"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.wst.server.ui"/>
-=======
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jst.jsp.ui.internal.wizard.NewJSPWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.wst.web.ui"/>
@@ -34,13 +29,6 @@
 		<list key="columns">
 			<item value="252"/>
 			<item value="504"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 		</list>
-	</section>
-	<section name="ImportExportAction">
-	</section>
-	<section name="PreferencesImportWizard">
-	</section>
-	<section name="PreferencesExportWizard">
 	</section>
 </section>

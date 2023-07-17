@@ -10,13 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-<<<<<<< HEAD
-import customer.CustomerServiceImpl;
-import customer.CustomerVO;
-=======
 import smart.customer.CustomerServiceImpl;
 import smart.customer.CustomerVO;
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 
 @Controller
 public class customerController {
@@ -88,13 +83,6 @@ public class customerController {
 
 	// 고객목록화면 요청
 	@RequestMapping("/list.cu")
-<<<<<<< HEAD
-	public String list(HttpSession session, Model model) {
-		session.setAttribute("category", "cu");
-
-		List<CustomerVO> list = service.customer_list();
-		model.addAttribute("list", list);
-=======
 	public String list(HttpSession session, Model model, String name) {
 		// null, "", "홍"
 		session.setAttribute("category", "cu");
@@ -111,7 +99,6 @@ public class customerController {
 		model.addAttribute("name", name);
 
 		// 응답화면연결
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 		return "customer/list";
 	}
 

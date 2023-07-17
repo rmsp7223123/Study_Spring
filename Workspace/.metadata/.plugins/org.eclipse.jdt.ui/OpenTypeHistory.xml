@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<<<<<<< HEAD
-    <typeInfo handle="=02.smart/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;customer{CustomerService.java[CustomerService" modifiers="513" timestamp="1685590961608"/>
-=======
     <typeInfo handle="=02.smart/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;smart.member{MemberSerivce.java[MemberSerivce" modifiers="513" timestamp="1687160421383"/>
     <typeInfo handle="=02.smart/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;smart.board{BoardService.java[BoardService" modifiers="513" timestamp="1688966076789"/>
->>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960
 </typeInfoHistroy>
