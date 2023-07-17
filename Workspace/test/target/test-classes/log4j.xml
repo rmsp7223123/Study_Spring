@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.hanul.test">
+	<logger name="com.test.test">
 		<level value="info" />
 	</logger>
 	

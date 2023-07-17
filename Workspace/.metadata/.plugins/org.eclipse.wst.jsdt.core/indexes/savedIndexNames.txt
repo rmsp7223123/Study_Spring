@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.4+C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 1277917112.index
 4277124977.index
@@ -7,3 +8,16 @@ INDEX VERSION 1.4+C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\
 2114537504.index
 78579322.index
 2087994622.index
+=======
+INDEX VERSION 1.4+D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1230021811.index
+2017095375.index
+2750762560.index
+1586800578.index
+415939034.index
+1824945469.index
+4277124977.index
+1375199975.index
+2175966987.index
+1263006568.index
+>>>>>>> 9b815261d53cc4f2093b795c56c82240c9f7e960

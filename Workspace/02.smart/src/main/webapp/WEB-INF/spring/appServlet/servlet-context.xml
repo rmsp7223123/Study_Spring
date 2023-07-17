@@ -16,9 +16,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<resources location="/resources/css/" mapping="/css/**"></resources>
-	<resources location="/resources/js/" mapping="/js/**"></resources>
-	<resources location="/resources/images/" mapping="/img/**"></resources>
+	<resources location="/resources/css/" mapping="/css/**" />
+	<resources location="/resources/js/" mapping="/js/**" />
+	<resources location="/resources/images/" mapping="/img/**" />
+	<resources location="/resources/upload/" mapping="/upload/**" />
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
@@ -39,9 +40,13 @@
 		<beans:property name="definitions"
 			value="/WEB-INF/views/tiles/config.xml" />
 	</beans:bean>
+	<beans:bean
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		id="multipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
+
 	<context:component-scan
 		base-package="kr.co.smart" />
-
-
 
 </beans:beans>
