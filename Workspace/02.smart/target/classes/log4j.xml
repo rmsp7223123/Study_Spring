@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" 
 "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-=======
-<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
-<log4j:configuration
-	xmlns:log4j="http://jakarta.apache.org/log4j/">
->>>>>>> parent of a41c903 (99)
 
 	<!-- Appenders -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
@@ -38,7 +32,6 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
-<<<<<<< HEAD
 	
 	<logger name="jdbc.sqlonly">
 		<level value="info" />
@@ -49,17 +42,6 @@
 		<level value="info" />
 	</logger>
 -->	
-=======
-
-	<logger name="jdbc.sqlonly">
-		<level value="info" />
-	</logger>
-
-<!-- 	<logger name="jdbc.resultsettable">
-		<level value="info" />
-	</logger>
- -->
->>>>>>> parent of a41c903 (99)
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />

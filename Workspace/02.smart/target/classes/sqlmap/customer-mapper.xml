@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="customer">
-<<<<<<< HEAD
 
 	<!-- 고객정보 삭제 -->
 	<delete id="delete">
@@ -37,9 +36,4 @@
 		order by name
 	</select>
 
-=======
-	<select id="list" resultType="customer.CustomerVO">
-		select * from customer order by name
-	</select>
->>>>>>> parent of a41c903 (99)
 </mapper>

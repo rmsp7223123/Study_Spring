@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 a {
-	color: initial;
+	color: inherit;
 }
 
-a:link, a:hover {
+a:not(.btn):link, a:not(.btn):hover {
 	text-decoration: none;
-	color: initial;
+	color: inherit;
 }
 
 table {
@@ -22,7 +22,7 @@ table th, table td {
 }
 
 table th:last-child, table td:last-child {
-	border-right: none;
+	border-right: none
 }
 
 table th {
@@ -30,13 +30,88 @@ table th {
 }
 
 table.tb-list tr {
-	height: 48px;
+	height: 48px
 }
 
 table.tb-row tr {
-	height: 60px;
+	height: 60px
 }
 
-talbe.tb-list th, table.tb-list td {
+table.tb-list th, table.tb-list td {
 	text-align: center;
+}
+
+a.text-link:hover {
+	color: #0d6efd;
+	text-decoration: underline;
+}
+
+a.text-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.profile {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%
+}
+
+.font-profile {
+	font-size: 38px;
+}
+
+.w-px100 {
+	width: 100px;
+}
+
+.w-px200 {
+	width: 200px;
+}
+
+.w-px300 {
+	width: 300px;
+}
+
+.w-px90 {
+	width: 90px;
+}
+
+.w-px80 {
+	width: 80px;
+}
+
+.w-px70 {
+	width: 70px;
+}
+
+.w-px60 {
+	width: 60px;
+}
+
+.date+.date-delete {
+	position: relative;
+	right: 45px;
+	display: none;
+}
+
+input[type=file] {
+	display: none;
+}
+
+.file-preview img {
+	max-height: 38px;
+}
+
+textarea.form-control {
+	height: 400px;
+	resize: none;
+}
+
+textarea.form-control {
+	height: 90px
+}
+
+#modal-image .modal-body img {
+	width: 100%;
 }
