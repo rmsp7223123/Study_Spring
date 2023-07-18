@@ -8,35 +8,29 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="nav-tabs"/>
+		<item key="selection" value=".active"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="nav-tabs"/>
-			<item value="requestAPI"/>
-			<item value="requestAPIR"/>
-			<item value="animal.sido"/>
-			<item value="animal.sodi"/>
-			<item value=".pagina"/>
-			<item value="페이지"/>
-			<item value="번호 클릭"/>
-			<item value="var page"/>
-			<item value="table.pharmacy"/>
-			<item value="this).data"/>
-			<item value="#pageList"/>
-			<item value="tb-list phar"/>
-			<item value="page"/>
-			<item value="img"/>
+			<item value=".active"/>
+			<item value="active"/>
+			<item value="1.6"/>
+			<item value="6125"/>
+			<item value="me-2"/>
+			<item value="heading"/>
+			<item value="java"/>
+			<item value="junit"/>
+			<item value="properties"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1361"/>
-		<item key="DIALOG_Y_ORIGIN" value="139"/>
+		<item key="DIALOG_X_ORIGIN" value="807"/>
+		<item key="DIALOG_Y_ORIGIN" value="268"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

@@ -2,6 +2,9 @@
 <aop-reference-model>
 <aop-project name="02.smart"/>
 <aop-project name="01.web"/>
+<<<<<<< HEAD
 <aop-project name="Middle"/>
+=======
+>>>>>>> parent of a41c903 (99)
 <aop-project name="99.test"/>
 </aop-reference-model>

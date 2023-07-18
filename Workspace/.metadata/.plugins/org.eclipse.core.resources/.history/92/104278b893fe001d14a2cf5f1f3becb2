@@ -1,0 +1,21 @@
+package com.hanul.web;
+
+import java.text.SimpleDateFormat;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TestController {
+
+	@RequestMapping("/first")
+	public String first(Model model) {
+//		비지니스로직
+		new SimpleDateFormat("yyyy년 mm월 dd일");
+		model.addAllAttributes("today", ?);
+//		응답화면연결
+		return "index";
+	}
+
+}
