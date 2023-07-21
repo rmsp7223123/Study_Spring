@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="99.test"/>
+<aop-project name="Middle"/>
 <aop-project name="02.smart"/>
 <aop-project name="01.web"/>
-<aop-project name="Middle"/>
-<aop-project name="99.test"/>
 </aop-reference-model>
