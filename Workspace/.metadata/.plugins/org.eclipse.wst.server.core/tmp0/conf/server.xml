@@ -160,7 +160,15 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
+<<<<<<< HEAD
       <Context docBase="D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\Spring_app\smart\upload" path="/smart/upload" reloadable="true"/><Context docBase="D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Middle" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:Middle"/></Host>
+=======
+<<<<<<< HEAD
+      <Context docBase="D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\Spring_app\smart\upload" path="/smart/upload" reloadable="true"/><Context docBase="D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\02.smart" path="/smart" reloadable="true" source="org.eclipse.jst.jee.server:02.smart"/></Host>
+=======
+      <Context docBase="C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\01.web" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:01.web"/><Context docBase="C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\02.smart" path="/smart" reloadable="true" source="org.eclipse.jst.jee.server:02.smart"/><Context docBase="C:\Users\rmsp7\OneDrive\문서\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\99.test" path="/app" reloadable="true" source="org.eclipse.jst.jee.server:99.test"/></Host>
+>>>>>>> parent of a41c903 (99)
+>>>>>>> e32449cb785356a670a17037283579c67cb22341
     </Engine>
   </Service>
 </Server>

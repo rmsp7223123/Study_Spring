@@ -74,6 +74,7 @@
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
 	</section>
+<<<<<<< HEAD
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="647"/>
 		<item key="DIALOG_Y_ORIGIN" value="341"/>
@@ -91,4 +92,6 @@
 	<section name="ResourceNavigator">
 		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
 	</section>
+=======
+>>>>>>> e32449cb785356a670a17037283579c67cb22341
 </section>
