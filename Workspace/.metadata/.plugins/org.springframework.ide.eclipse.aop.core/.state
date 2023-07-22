@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="99.test"/>
-<aop-project name="Middle"/>
 <aop-project name="02.smart"/>
 <aop-project name="01.web"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<aop-project name="Middle"/>
-=======
->>>>>>> parent of a41c903 (99)
-<aop-project name="99.test"/>
->>>>>>> e32449cb785356a670a17037283579c67cb22341
 </aop-reference-model>

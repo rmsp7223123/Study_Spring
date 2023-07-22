@@ -1,25 +1,7 @@
-<<<<<<< HEAD
 INDEX VERSION 1.4+D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1230021811.index
-1586800578.index
-2175966987.index
+2750762560.index
 415939034.index
 2017095375.index
-1375199975.index
-1263006568.index
-<<<<<<< HEAD
-4277124977.index
-2750762560.index
-=======
-=======
-INDEX VERSION 1.4+C:\Users\rmsp7\OneDrive\¹®¼­\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1277917112.index
-4277124977.index
-1426663610.index
-2283851948.index
-1263006568.index
-2114537504.index
-78579322.index
-2087994622.index
->>>>>>> parent of a41c903 (99)
->>>>>>> e32449cb785356a670a17037283579c67cb22341
+2175966987.index
+1230021811.index
+1586800578.index
